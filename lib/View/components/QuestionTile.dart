@@ -7,6 +7,7 @@ class QuestionTile extends StatefulWidget {
   final String choice2;
   final String choice3;
   final String choice4;
+  final String answer;
   final String topic;
   const QuestionTile(
       {required this.id,
@@ -15,6 +16,7 @@ class QuestionTile extends StatefulWidget {
       required this.choice2,
       required this.choice3,
       required this.choice4,
+      required this.answer,
       required this.topic,
       super.key});
 

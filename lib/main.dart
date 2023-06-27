@@ -44,6 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
             choice2: "A go sign",
             choice3: "A watch out sign",
             choice4: "A slow down sign",
+            answer: "",
             topic: ""),
       ),
     );
