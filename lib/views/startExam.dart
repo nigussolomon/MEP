@@ -50,7 +50,7 @@ class _StartExamPageState extends State<StartExamPage> {
                         ),
                         SizedBox(
                             height:
-                                220), // Add spacing between the title and other elements
+                                180), // Add spacing between the title and other elements
                         const Text(
                           'THE EXAM HAS 50 ITEMS AND ONLY 50 MINUTES IS ALLOWED',
                           style: TextStyle(
