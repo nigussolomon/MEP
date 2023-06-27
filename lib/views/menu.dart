@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mep/views/components/LoginButton.dart';
-import 'package:mep/views/login.dart';
+import 'package:mep/views/numberOfQuestion.dart';
 import 'package:mep/views/resourseList.dart';
 import 'package:mep/views/startExam.dart';
 
@@ -12,10 +12,10 @@ class ChooseMenu extends StatefulWidget {
 }
 
 class _ChooseMenuState extends State<ChooseMenu> {
-  void buttonFunction() {
+  void questionConfiguration() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const LoginPage()),
+      MaterialPageRoute(builder: (context) => const NumberOfQuestions()),
     );
   }
   void startExam() {
@@ -69,7 +69,7 @@ class _ChooseMenuState extends State<ChooseMenu> {
                                 120), // Add spacing between the title and other elements
                         LoginButton(
                           buttonName: "PRACTICE EXAM",
-                          onPressed: buttonFunction,
+                          onPressed: questionConfiguration,
                         ),
                         SizedBox(height: 20),
                         LoginButton(
