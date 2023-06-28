@@ -19,6 +19,9 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    final double imageWidth = screenSize.width * 0.5;
+
     return Scaffold(
       body: Center(
         child: Container(
@@ -28,6 +31,8 @@ class _LoginPageState extends State<LoginPage> {
                 child: Image.asset(
                   'asset/hero.png',
                   fit: BoxFit.cover,
+                  width: imageWidth,
+                  height: double.infinity,
                 ),
               ),
               Expanded(
@@ -40,26 +45,28 @@ class _LoginPageState extends State<LoginPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: 40,
+                          height: screenSize.height * 0.04,
                         ),
                         const Text(
                           'MEP Berhan Driving Licence School',
                           style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF484848)),
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF484848),
+                          ),
                         ),
                         SizedBox(
-                            height:
-                                120), // Add spacing between the title and other elements
+                          height: screenSize.height * 0.12,
+                        ),
                         const Text(
                           'WELCOME TO YOUR DRIVING LICENSE EXAMINATION',
                           style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF484848)),
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF484848),
+                          ),
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: screenSize.height * 0.02),
                         const Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
@@ -69,17 +76,17 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: screenSize.height * 0.01),
                         MyTextField(
                           hintText: "Username",
                           obscureText: false,
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: screenSize.height * 0.01),
                         MyTextField(
                           hintText: "Password",
                           obscureText: true,
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: screenSize.height * 0.01),
                         LoginButton(
                           buttonName: "LOGIN",
                           onPressed: buttonFunction,

@@ -15,6 +15,9 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
   }
 
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    final double imageWidth = screenSize.width * 0.5;
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -39,6 +42,8 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
                 child: Image.asset(
                   'asset/hero.png',
                   fit: BoxFit.cover,
+                  width: imageWidth,
+                  height: double.infinity,
                 ),
               ),
               Expanded(

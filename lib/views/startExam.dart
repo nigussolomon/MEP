@@ -14,6 +14,9 @@ class _StartExamPageState extends State<StartExamPage> {
   }
 
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    final double imageWidth = screenSize.width * 0.5;
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -38,6 +41,8 @@ class _StartExamPageState extends State<StartExamPage> {
                 child: Image.asset(
                   'asset/hero.png',
                   fit: BoxFit.cover,
+                  width: imageWidth,
+                  height: double.infinity,
                 ),
               ),
               Expanded(

@@ -33,6 +33,9 @@ class _ChooseMenuState extends State<ChooseMenu> {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    final double imageWidth = screenSize.width * 0.5;
+
     return Scaffold(
       body: Center(
         child: Container(
@@ -42,6 +45,8 @@ class _ChooseMenuState extends State<ChooseMenu> {
                 child: Image.asset(
                   'asset/hero.png',
                   fit: BoxFit.cover,
+                  width: imageWidth,
+                  height: double.infinity,
                 ),
               ),
               Expanded(
