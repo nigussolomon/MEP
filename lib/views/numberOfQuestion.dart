@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mep/views/components/LoginButton.dart';
 import 'package:mep/views/components/QuestionField.dart';
-import 'package:mep/views/menu.dart';
 
 class NumberOfQuestions extends StatefulWidget {
   const NumberOfQuestions({super.key});
@@ -12,14 +11,26 @@ class NumberOfQuestions extends StatefulWidget {
 
 class _NumberOfQuestionsState extends State<NumberOfQuestions> {
   void buttonFunction() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const ChooseMenu()),
-    );
+    
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        leading: Padding(
+          padding: EdgeInsets.only(
+              top: 15, left: 15), // Add 5 units of margin (top: 15, left: 15)
+          child: CircleAvatar(
+            backgroundColor: Color(0xFF484848),
+            child: BackButton(
+              color: Colors.white,
+            ),
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: Center(
         child: Container(
           child: Row(

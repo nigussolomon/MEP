@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mep/views/components/LoginButton.dart';
-import 'package:mep/views/login.dart';
-import 'package:mep/views/startExam.dart';
 
 class ResourceList extends StatefulWidget {
   const ResourceList({super.key});
@@ -12,29 +10,26 @@ class ResourceList extends StatefulWidget {
 
 class _ResourceListState extends State<ResourceList> {
   void buttonFunction() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const LoginPage()),
-    );
+    
   }
-
-  void startExam() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const StartExamPage()),
-    );
-  }
-
-  void resourceList() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const ResourceList()),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        leading: Padding(
+          padding: EdgeInsets.only(
+              top: 15, left: 15), // Add 5 units of margin (top: 15, left: 15)
+          child: CircleAvatar(
+            backgroundColor: Color(0xFF484848),
+            child: BackButton(
+              color: Colors.white,
+            ),
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: Center(
         child: Container(
           child: Row(
@@ -75,7 +70,7 @@ class _ResourceListState extends State<ResourceList> {
                         SizedBox(height: 20),
                         LoginButton(
                           buttonName: "SAFTEY AND YOUR YOUR VEICHLE",
-                          onPressed: startExam,
+                          onPressed: buttonFunction,
                         ),
                         SizedBox(
                           height: 20,
@@ -89,7 +84,7 @@ class _ResourceListState extends State<ResourceList> {
                         ),
                         LoginButton(
                           buttonName: "MOTORWAY RULES",
-                          onPressed: resourceList,
+                          onPressed: buttonFunction,
                         ),
                       ],
                     ),

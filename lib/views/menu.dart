@@ -13,19 +13,19 @@ class ChooseMenu extends StatefulWidget {
 
 class _ChooseMenuState extends State<ChooseMenu> {
   void questionConfiguration() {
-    Navigator.pushReplacement(
+    Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const NumberOfQuestions()),
     );
   }
   void startExam() {
-    Navigator.pushReplacement(
+    Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const StartExamPage()),
     );
   }
   void resourceList() {
-    Navigator.pushReplacement(
+    Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const ResourceList()),
     );
