@@ -13,7 +13,9 @@ class QuestionPage extends StatefulWidget {
 class _QuestionPageState extends State<QuestionPage> {
   @override
   void initState() {
-    BlocProvider.of<QuestionBloc>(context).add(GetQuestions());
+    setState(() {
+      BlocProvider.of<QuestionBloc>(context).add(GetQuestions());
+    });
     super.initState();
   }
 
@@ -45,19 +47,38 @@ class _QuestionPageState extends State<QuestionPage> {
             );
           } else if (state is QuestionLoadingState) {
             return const Center(child: CircularProgressIndicator());
+          } else if (state is QuestionFailState) {
+            return Center(
+              child: Text(state.message),
+            );
           } else if (state is QuestionSuccessState) {
             return Column(
               children: [
-                const QuestionTile(
-                  id: 1,
-                  questionContent: "What does this sign show",
-                  choice1: "A stop sign",
-                  choice2: "A go sign",
-                  choice3: "A watch out sign",
-                  choice4: "A slow down sign",
-                  answer: "",
-                  topic: "",
+                Container(
+                  child: Column(
+                    children: [
+                      QuestionTile(
+                          id: state.question[0].id,
+                          questionContent: state.question[0].questionContent,
+                          choice1: state.question[0].choice1,
+                          choice2: state.question[0].choice2,
+                          choice3: state.question[0].choice3,
+                          choice4: state.question[0].choice4,
+                          answer: state.question[0].answer,
+                          topic: state.question[0].topic)
+                    ],
+                  ),
                 ),
+                // const QuestionTile(
+                //   id: 1,
+                //   questionContent: "question",
+                //   choice1: "A stop sign",
+                //   choice2: "A go sign",
+                //   choice3: "A watch out sign",
+                //   choice4: "A slow down sign",
+                //   answer: "",
+                //   topic: "",
+                // ),
                 Padding(
                   padding: EdgeInsets.all(height * 0.05),
                   child: Container(

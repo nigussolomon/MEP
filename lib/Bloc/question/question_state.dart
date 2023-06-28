@@ -13,6 +13,11 @@ class QuestionLoadingState extends QuestionState {
 }
 
 class QuestionSuccessState extends QuestionState {
+  final List question;
+
+  QuestionSuccessState(
+    this.question,
+  );
   @override
   List<Object> get props => [];
 }
