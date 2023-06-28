@@ -6,8 +6,12 @@ part 'question_state.dart';
 
 class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
   QuestionBloc() : super(QuestionInitialState()) {
-    on<QuestionEvent>((event, emit) {
-      // TODO: implement event handler
+    on<GetQuestions>((event, emit) {
+      emit(QuestionLoadingState());
+      for (int i = 0; i < 10; i++) {
+        print('getting ready');
+      }
+      emit(QuestionSuccessState());
     });
   }
 }
