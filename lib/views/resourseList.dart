@@ -9,9 +9,8 @@ class ResourceList extends StatefulWidget {
 }
 
 class _ResourceListState extends State<ResourceList> {
-  void buttonFunction() {
-    
-  }
+  void buttonFunction() {}
+
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -20,9 +19,9 @@ class _ResourceListState extends State<ResourceList> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        leading: const Padding(
+        leading: Padding(
           padding: EdgeInsets.only(
-              top: 15, left: 15), // Add 5 units of margin (top: 15, left: 15)
+              top: 15, left: 15),
           child: CircleAvatar(
             backgroundColor: Color(0xFF484848),
             child: BackButton(
@@ -47,45 +46,46 @@ class _ResourceListState extends State<ResourceList> {
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 100.0),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: screenSize.width * 0.1),
                   child: Container(
                     color: Colors.white,
                     child: Column(
-                      mainAxisAlignment:
-                          MainAxisAlignment.start, // Align content from top
+                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: 40,
+                          height: screenSize.height * 0.05,
                         ),
                         const Text(
-                          'MEP Berhan Driving Licence School', // Add the title
+                          'MEP Berhan Driving Licence School',
                           style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF484848)),
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF484848),
+                          ),
                         ),
                         SizedBox(
-                            height:
-                                120), // Add spacing between the title and other elements
+                          height: screenSize.height * 0.1,
+                        ),
                         LoginButton(
                           buttonName: "ESSENTIAL DOCUMENTS",
                           onPressed: buttonFunction,
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: screenSize.height * 0.02),
                         LoginButton(
-                          buttonName: "SAFTEY AND YOUR YOUR VEICHLE",
+                          buttonName: "SAFETY AND YOUR VEHICLE",
                           onPressed: buttonFunction,
                         ),
                         SizedBox(
-                          height: 20,
+                          height: screenSize.height * 0.02,
                         ),
                         LoginButton(
                           buttonName: "ROAD AND TRAFFIC SIGN",
                           onPressed: buttonFunction,
                         ),
                         SizedBox(
-                          height: 20,
+                          height: screenSize.height * 0.02,
                         ),
                         LoginButton(
                           buttonName: "MOTORWAY RULES",

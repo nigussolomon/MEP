@@ -9,9 +9,7 @@ class StartExamPage extends StatefulWidget {
 }
 
 class _StartExamPageState extends State<StartExamPage> {
-  void buttonFunction() {
-    
-  }
+  void buttonFunction() {}
 
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -20,9 +18,8 @@ class _StartExamPageState extends State<StartExamPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        leading: const Padding(
-          padding: EdgeInsets.only(
-              top: 15, left: 15), // Add 5 units of margin (top: 15, left: 15)
+        leading: Padding(
+          padding: EdgeInsets.only(top: 15, left: 15),
           child: CircleAvatar(
             backgroundColor: Color(0xFF484848),
             child: BackButton(
@@ -47,7 +44,7 @@ class _StartExamPageState extends State<StartExamPage> {
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 100.0),
+                  padding: EdgeInsets.symmetric(horizontal: screenSize.width * 0.1),
                   child: Container(
                     color: Colors.white,
                     child: Column(
@@ -55,27 +52,28 @@ class _StartExamPageState extends State<StartExamPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: 40,
+                          height: screenSize.height * 0.05,
                         ),
                         const Text(
                           'MEP Berhan Driving Licence School',
                           style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF484848)),
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF484848),
+                          ),
                         ),
                         SizedBox(
-                            height:
-                                180), // Add spacing between the title and other elements
+                          height: screenSize.height * 0.18,
+                        ),
                         const Text(
                           'THE EXAM HAS 50 ITEMS AND ONLY 50 MINUTES IS ALLOWED',
                           style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF484848)),
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF484848),
+                          ),
                         ),
-                        SizedBox(height: 20),
-                        
+                        SizedBox(height: screenSize.height * 0.02),
                         LoginButton(
                           buttonName: "START EXAMINATION",
                           onPressed: buttonFunction,

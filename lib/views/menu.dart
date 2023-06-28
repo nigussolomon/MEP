@@ -18,12 +18,14 @@ class _ChooseMenuState extends State<ChooseMenu> {
       MaterialPageRoute(builder: (context) => const NumberOfQuestions()),
     );
   }
+
   void startExam() {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const StartExamPage()),
     );
   }
+
   void resourceList() {
     Navigator.push(
       context,
@@ -51,43 +53,43 @@ class _ChooseMenuState extends State<ChooseMenu> {
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 100.0),
+                  padding: EdgeInsets.symmetric(horizontal: screenSize.width * 0.1),
                   child: Container(
                     color: Colors.white,
                     child: Column(
-                      mainAxisAlignment:
-                          MainAxisAlignment.start, // Align content from top
+                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: 40,
+                          height: screenSize.height * 0.05,
                         ),
                         const Text(
-                          'MEP Berhan Driving Licence School', // Add the title
+                          'MEP Berhan Driving Licence School',
                           style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF484848)),
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF484848),
+                          ),
                         ),
                         SizedBox(
-                            height:
-                                120), // Add spacing between the title and other elements
+                          height: screenSize.height * 0.1,
+                        ),
                         LoginButton(
                           buttonName: "PRACTICE EXAM",
                           onPressed: questionConfiguration,
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: screenSize.height * 0.02),
                         LoginButton(
                           buttonName: "START EXAMINATION",
                           onPressed: startExam,
                         ),
                         SizedBox(
-                          height: 20,
+                          height: screenSize.height * 0.02,
                         ),
                         LoginButton(
                           buttonName: "RESOURCES",
                           onPressed: resourceList,
-                        )
+                        ),
                       ],
                     ),
                   ),
