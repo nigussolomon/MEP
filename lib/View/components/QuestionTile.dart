@@ -32,8 +32,12 @@ class _QuestionTileState extends State<QuestionTile> {
     return Center(
       child: Container(
         child: Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: width * 0.3, vertical: height * 0.3),
+          padding: EdgeInsets.only(
+            left: width * 0.3,
+            right: width * 0.3,
+            top: height * 0.3,
+            bottom: height * 0.05,
+          ),
           child: Column(
             children: [
               Text(
