@@ -21,7 +21,7 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        leading: Padding(
+        leading: const Padding(
           padding: EdgeInsets.only(
               top: 15, left: 15), // Add 5 units of margin (top: 15, left: 15)
           child: CircleAvatar(
