@@ -13,7 +13,9 @@ class QuestionPage extends StatefulWidget {
 class _QuestionPageState extends State<QuestionPage> {
   @override
   void initState() {
-    BlocProvider.of<QuestionBloc>(context).add(GetQuestions());
+    setState(() {
+      BlocProvider.of<QuestionBloc>(context).add(GetQuestions());
+    });
     super.initState();
   }
 
@@ -45,19 +47,39 @@ class _QuestionPageState extends State<QuestionPage> {
             );
           } else if (state is QuestionLoadingState) {
             return const Center(child: CircularProgressIndicator());
+          } else if (state is QuestionFailState) {
+            return Center(
+              child: Text(state.message),
+            );
           } else if (state is QuestionSuccessState) {
             return Column(
               children: [
-                const QuestionTile(
-                  id: 1,
-                  questionContent: "What does this sign show",
-                  choice1: "A stop sign",
-                  choice2: "A go sign",
-                  choice3: "A watch out sign",
-                  choice4: "A slow down sign",
-                  answer: "",
-                  topic: "",
+                Container(
+                  child: Column(
+                    children: [
+                      QuestionTile(
+                          id: state.question![state.index].id,
+                          questionContent:
+                              state.question![state.index].questionContent,
+                          choice1: state.question![state.index].choice1,
+                          choice2: state.question![state.index].choice2,
+                          choice3: state.question![state.index].choice3,
+                          choice4: state.question![state.index].choice4,
+                          answer: state.question![state.index].answer,
+                          topic: state.question![state.index].topic)
+                    ],
+                  ),
                 ),
+                // const QuestionTile(
+                //   id: 1,
+                //   questionContent: "question",
+                //   choice1: "A stop sign",
+                //   choice2: "A go sign",
+                //   choice3: "A watch out sign",
+                //   choice4: "A slow down sign",
+                //   answer: "",
+                //   topic: "",
+                // ),
                 Padding(
                   padding: EdgeInsets.all(height * 0.05),
                   child: Container(

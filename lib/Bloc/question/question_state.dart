@@ -12,7 +12,12 @@ class QuestionLoadingState extends QuestionState {
   List<Object> get props => [];
 }
 
+// ignore: must_be_immutable
 class QuestionSuccessState extends QuestionState {
+  final List? question;
+  int index;
+
+  QuestionSuccessState({this.question, this.index = 0});
   @override
   List<Object> get props => [];
 }
