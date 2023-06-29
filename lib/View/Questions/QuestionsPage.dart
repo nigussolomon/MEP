@@ -58,14 +58,15 @@ class _QuestionPageState extends State<QuestionPage> {
                   child: Column(
                     children: [
                       QuestionTile(
-                          id: state.question[0].id,
-                          questionContent: state.question[0].questionContent,
-                          choice1: state.question[0].choice1,
-                          choice2: state.question[0].choice2,
-                          choice3: state.question[0].choice3,
-                          choice4: state.question[0].choice4,
-                          answer: state.question[0].answer,
-                          topic: state.question[0].topic)
+                          id: state.question![state.index].id,
+                          questionContent:
+                              state.question![state.index].questionContent,
+                          choice1: state.question![state.index].choice1,
+                          choice2: state.question![state.index].choice2,
+                          choice3: state.question![state.index].choice3,
+                          choice4: state.question![state.index].choice4,
+                          answer: state.question![state.index].answer,
+                          topic: state.question![state.index].topic)
                     ],
                   ),
                 ),

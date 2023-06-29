@@ -15,7 +15,7 @@ class QuestionLoadingState extends QuestionState {
 // ignore: must_be_immutable
 class QuestionSuccessState extends QuestionState {
   final List? question;
-  int? index;
+  int index;
 
   QuestionSuccessState({this.question, this.index = 0});
   @override

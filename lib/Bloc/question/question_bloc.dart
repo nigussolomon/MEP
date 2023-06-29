@@ -56,7 +56,14 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
       mockQuestion.add(question2);
       mockQuestion.add(question3);
       mockQuestion.add(question4);
-      emit(QuestionSuccessState(mockQuestion));
+      emit(QuestionSuccessState(question: mockQuestion));
+    });
+
+    on<ChooseAnswer>((event, emit) async {
+      emit(QuestionLoadingState());
+      int index = event.index;
+      index++;
+      emit(QuestionSuccessState(index: index));
     });
   }
 }
