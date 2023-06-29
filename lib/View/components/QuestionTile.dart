@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mep/View/components/ChoiceButton.dart';
 
 class QuestionTile extends StatefulWidget {
   final int id;
@@ -53,99 +54,15 @@ class _QuestionTileState extends State<QuestionTile> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: EdgeInsets.all(height * 0.02),
-                        child: Container(
-                          padding: EdgeInsets.all(height * 0.023),
-                          height: height * 0.077,
-                          width: width * 0.15,
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 72, 72, 72),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Center(
-                            child: Text(
-                              widget.choice1,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: height * 0.02,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(height * 0.02),
-                        child: Container(
-                          padding: EdgeInsets.all(height * 0.023),
-                          height: height * 0.077,
-                          width: width * 0.15,
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 72, 72, 72),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Center(
-                            child: Text(
-                              widget.choice2,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: height * 0.02,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                      ChoiceButton(choiceContent: widget.choice1),
+                      ChoiceButton(choiceContent: widget.choice2),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: EdgeInsets.all(height * 0.02),
-                        child: Container(
-                          padding: EdgeInsets.all(height * 0.023),
-                          height: height * 0.077,
-                          width: width * 0.15,
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 72, 72, 72),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Center(
-                            child: Text(
-                              widget.choice3,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: height * 0.02,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(height * 0.02),
-                        child: Container(
-                          padding: EdgeInsets.all(height * 0.023),
-                          height: height * 0.077,
-                          width: width * 0.15,
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 72, 72, 72),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Center(
-                            child: Text(
-                              widget.choice4,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: height * 0.02,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                      ChoiceButton(choiceContent: widget.choice3),
+                      ChoiceButton(choiceContent: widget.choice4),
                     ],
                   ),
                 ],
