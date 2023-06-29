@@ -58,7 +58,7 @@ class _QuestionPageState extends State<QuestionPage> {
                   child: Column(
                     children: [
                       QuestionTile(
-                          id: state.question![state.index].id,
+                          id: state.question?[state.index].id,
                           questionContent:
                               state.question![state.index].questionContent,
                           choice1: state.question![state.index].choice1,
@@ -70,16 +70,6 @@ class _QuestionPageState extends State<QuestionPage> {
                     ],
                   ),
                 ),
-                // const QuestionTile(
-                //   id: 1,
-                //   questionContent: "question",
-                //   choice1: "A stop sign",
-                //   choice2: "A go sign",
-                //   choice3: "A watch out sign",
-                //   choice4: "A slow down sign",
-                //   answer: "",
-                //   topic: "",
-                // ),
                 Padding(
                   padding: EdgeInsets.all(height * 0.05),
                   child: Container(

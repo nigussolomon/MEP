@@ -8,12 +8,6 @@ class GetQuestions extends QuestionEvent {
 }
 
 class ChooseAnswer extends QuestionEvent {
-  final int index;
-
-  ChooseAnswer( 
-    this.index,
-  );
-
   @override
   List<Object> get props => [];
 }
