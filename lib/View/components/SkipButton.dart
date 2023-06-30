@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mep/Bloc/question/question_bloc.dart';
 
 class SkipButton extends StatelessWidget {
   const SkipButton({super.key});
@@ -9,7 +11,7 @@ class SkipButton extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () {
-        print("Working....");
+        BlocProvider.of<QuestionBloc>(context).add(SkipQuestion());
       },
       child: Padding(
         padding: EdgeInsets.all(height * 0.05),
