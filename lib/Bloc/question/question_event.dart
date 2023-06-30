@@ -11,3 +11,8 @@ class ChooseAnswer extends QuestionEvent {
   @override
   List<Object> get props => [];
 }
+
+class SkipQuestion extends QuestionEvent {
+  @override
+  List<Object> get props => [];
+}
