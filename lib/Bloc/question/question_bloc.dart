@@ -111,10 +111,10 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
     on<SkipQuestion>((event, emit) async {
       emit(QuestionLoadingState());
       //...
-      var r_question = mockQuestion[index];
+      var skipped_question = mockQuestion[index];
 
       //substitute....
-      mockQuestion.add(r_question);
+      mockQuestion.add(skipped_question);
 
       //update index
       index++;
