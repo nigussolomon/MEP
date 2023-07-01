@@ -73,6 +73,8 @@ class _QuestionPageState extends State<QuestionPage> {
                 const SkipButton(),
               ],
             );
+          } else if (state is QuestionDoneState) {
+            return const Placeholder();
           }
           return Container();
         },
