@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mep/Bloc/question/question_bloc.dart';
+import 'package:mep/View/Questions/ScorePage.dart';
 import 'package:mep/View/components/QuestionTile.dart';
 import 'package:mep/View/components/SkipButton.dart';
 
@@ -72,6 +73,13 @@ class _QuestionPageState extends State<QuestionPage> {
                 ),
                 const SkipButton(),
               ],
+            );
+          } else if (state is QuestionDoneState) {
+            return ScorePage(
+              score: state.score,
+              total: state.total,
+              comment: state.comment,
+              scoreColor: state.scoreColor,
             );
           }
           return Container();

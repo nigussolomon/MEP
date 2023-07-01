@@ -1,25 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mep/Bloc/question/question_bloc.dart';
+import 'package:mep/View/Questions/QuestionsPage.dart';
 
-class SkipButton extends StatefulWidget {
-  const SkipButton({super.key});
+class RetryButon extends StatefulWidget {
+  const RetryButon({super.key});
 
   @override
-  State<SkipButton> createState() => _SkipButtonState();
+  State<RetryButon> createState() => _RetryButonState();
 }
 
-class _SkipButtonState extends State<SkipButton> {
+class _RetryButonState extends State<RetryButon> {
   bool isHovering = false;
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: EdgeInsets.all(height * 0.05),
+      padding: EdgeInsets.all(height * 0.02),
       child: InkWell(
-        onTap: () => BlocProvider.of<QuestionBloc>(context).add(SkipQuestion()),
+        onTap: () {
+          final questionBloc = QuestionBloc();
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => BlocProvider.value(
+                value: questionBloc,
+                child: const QuestionPage(),
+              ),
+            ),
+          );
+        },
         onHover: (hovering) {
           setState(() => isHovering = hovering);
         },
@@ -33,24 +44,15 @@ class _SkipButtonState extends State<SkipButton> {
                 : const Color.fromARGB(255, 72, 72, 72),
             borderRadius: BorderRadius.circular(5),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                "Skip Question",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: height * 0.02,
-                ),
-              ),
-              Icon(
-                Icons.arrow_right_alt_outlined,
+          child: Center(
+            child: Text(
+              "Retry",
+              style: TextStyle(
                 color: Colors.white,
-                size: height * 0.04,
+                fontWeight: FontWeight.bold,
+                fontSize: height * 0.02,
               ),
-            ],
+            ),
           ),
         ),
       ),

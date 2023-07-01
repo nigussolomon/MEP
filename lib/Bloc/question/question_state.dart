@@ -32,3 +32,14 @@ class QuestionFailState extends QuestionState {
   @override
   List<Object> get props => [];
 }
+
+class QuestionDoneState extends QuestionState {
+  final int score;
+  final int total;
+  final String comment;
+  final Color scoreColor;
+
+  QuestionDoneState(this.score, this.total, this.comment, this.scoreColor);
+  @override
+  List<Object> get props => [];
+}
