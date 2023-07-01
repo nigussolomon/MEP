@@ -17,7 +17,7 @@ class ChoiceButton extends StatelessWidget {
       padding: EdgeInsets.all(height * 0.02),
       child: GestureDetector(
         onTap: () {
-          BlocProvider.of<QuestionBloc>(context).add(ChooseAnswer());
+          BlocProvider.of<QuestionBloc>(context).add(ChooseAnswer(choiceContent));
         },
         child: Container(
           padding: EdgeInsets.all(height * 0.023),

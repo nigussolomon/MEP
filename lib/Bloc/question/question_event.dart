@@ -8,6 +8,9 @@ class GetQuestions extends QuestionEvent {
 }
 
 class ChooseAnswer extends QuestionEvent {
+  final String choiceContent;
+
+  ChooseAnswer(this.choiceContent);
   @override
   List<Object> get props => [];
 }
