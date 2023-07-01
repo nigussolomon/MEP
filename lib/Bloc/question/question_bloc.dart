@@ -102,10 +102,16 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
     mockQuestion.add(question2);
     mockQuestion.add(question3);
     mockQuestion.add(question4);
+
     on<ChooseAnswer>((event, emit) async {
       emit(QuestionLoadingState());
-      index++;
-      emit(QuestionSuccessState(question: mockQuestion, index: index));
+
+      if (lastQuestion(index, mockQuestion.length - 1)) {
+        emit(QuestionDoneState());
+      } else {
+        index++;
+        emit(QuestionSuccessState(question: mockQuestion, index: index));
+      }
     });
 
     on<SkipQuestion>((event, emit) async {
@@ -122,4 +128,12 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
       emit(QuestionSuccessState(question: mockQuestion, index: index));
     });
   }
+}
+
+//custom functions
+bool lastQuestion(int cur_index, int last_index) {
+  if (cur_index == last_index) {
+    return true;
+  }
+  return false;
 }

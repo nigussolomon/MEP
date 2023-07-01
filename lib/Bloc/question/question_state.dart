@@ -32,3 +32,8 @@ class QuestionFailState extends QuestionState {
   @override
   List<Object> get props => [];
 }
+
+class QuestionDoneState extends QuestionState {
+  @override
+  List<Object> get props => [];
+}
