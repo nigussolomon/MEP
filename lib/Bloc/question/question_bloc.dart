@@ -64,6 +64,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
     on<GetQuestions>((event, emit) async {
       emit(QuestionLoadingState());
       // dynamic apiQuestion = await _apiServiceProvider.fetchQuestion();
+      index = mark = 0;
       emit(QuestionSuccessState(question: mockQuestion));
     });
 

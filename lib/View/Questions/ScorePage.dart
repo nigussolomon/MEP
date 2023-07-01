@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mep/Bloc/question/question_bloc.dart';
+import 'package:mep/View/Questions/QuestionsPage.dart';
 import 'package:mep/View/components/ChoiceButton.dart';
+import 'package:mep/View/components/RetryButton.dart';
 
 class ScorePage extends StatelessWidget {
   final int score;
@@ -55,7 +59,7 @@ class ScorePage extends StatelessWidget {
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ChoiceButton(choiceContent: "Retry"),
+                  RetryButon(),
                   ChoiceButton(choiceContent: "MainMenu"),
                 ],
               ),
