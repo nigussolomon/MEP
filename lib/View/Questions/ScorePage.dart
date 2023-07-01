@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:mep/View/components/ChoiceButton.dart';
 
 class ScorePage extends StatelessWidget {
-  const ScorePage({super.key});
+  final int score;
+  final int total;
+  final String comment;
+  final Color scoreColor;
+  const ScorePage(
+      {required this.score,
+      required this.total,
+      required this.comment,
+      required this.scoreColor,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +34,17 @@ class ScorePage extends StatelessWidget {
               height: height * 0.025,
             ),
             Text(
-              "You score is 45/50 \n\t\t\t\t\t\t\tWelldone",
+              "Your score is $score/$total",
               style: TextStyle(
                 fontSize: height * 0.05,
-                color: Colors.green,
+                color: scoreColor,
+              ),
+            ),
+            Text(
+              comment,
+              style: TextStyle(
+                fontSize: height * 0.05,
+                color: scoreColor,
               ),
             ),
             SizedBox(
