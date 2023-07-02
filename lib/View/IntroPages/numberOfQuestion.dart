@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mep/Bloc/question/question_bloc.dart';
+import 'package:mep/View/Questions/QuestionsPage.dart';
 import 'package:mep/View/components/LoginButton.dart';
 import 'package:mep/View/components/QuestionField.dart';
 
@@ -10,7 +13,13 @@ class NumberOfQuestions extends StatefulWidget {
 }
 
 class _NumberOfQuestionsState extends State<NumberOfQuestions> {
-  void buttonFunction() {}
+  void buttonFunction() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => BlocProvider.value(value: questionBloc,
+      child: const QuestionPage(),)),
+    );
+  }
 
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -37,7 +46,7 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
             children: [
               Expanded(
                 child: Image.asset(
-                  'assets/images/hero.png',
+                  'asset/hero.png',
                   fit: BoxFit.cover,
                   width: imageWidth,
                   height: double.infinity,

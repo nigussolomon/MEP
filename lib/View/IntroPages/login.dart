@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Expanded(
                 child: Image.asset(
-                  'assets/images/hero.png',
+                  'asset/hero.png',
                   fit: BoxFit.cover,
                   width: imageWidth,
                   height: double.infinity,

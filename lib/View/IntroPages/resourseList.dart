@@ -38,7 +38,7 @@ class _ResourceListState extends State<ResourceList> {
             children: [
               Expanded(
                 child: Image.asset(
-                  'assets/images/hero.png',
+                  'asset/hero.png',
                   fit: BoxFit.cover,
                   width: imageWidth,
                   height: double.infinity,

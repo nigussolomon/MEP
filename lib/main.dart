@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mep/Bloc/question/question_bloc.dart';
+import 'package:mep/View/IntroPages/login.dart';
 import 'package:mep/View/Questions/QuestionsPage.dart';
 
 void main() {
@@ -18,12 +19,14 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
               seedColor: const Color.fromARGB(255, 72, 72, 72)),
-          useMaterial3: true,
+          // useMaterial3: true,
         ),
         debugShowCheckedModeBanner: false,
-        home: BlocProvider<QuestionBloc>(
-          create: (context) => QuestionBloc(),
-          child: const QuestionPage(),
-        ));
+        home: LoginPage(),
+        );
+        // home: BlocProvider<QuestionBloc>(
+        //   create: (context) => QuestionBloc(),
+        //   child: const QuestionPage(),
+        // ));
   }
 }

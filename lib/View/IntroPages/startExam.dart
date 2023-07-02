@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mep/View/Questions/QuestionsPage.dart';
 import 'package:mep/View/components/LoginButton.dart';
 
 class StartExamPage extends StatefulWidget {
@@ -9,7 +10,12 @@ class StartExamPage extends StatefulWidget {
 }
 
 class _StartExamPageState extends State<StartExamPage> {
-  void buttonFunction() {}
+  void buttonFunction() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => QuestionPage()),
+    );
+  }
 
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -36,7 +42,7 @@ class _StartExamPageState extends State<StartExamPage> {
             children: [
               Expanded(
                 child: Image.asset(
-                  'assets/images/hero.png',
+                  'assets/hero.png',
                   fit: BoxFit.cover,
                   width: imageWidth,
                   height: double.infinity,
