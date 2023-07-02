@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mep/Bloc/question/question_bloc.dart';
 import 'package:mep/View/Questions/QuestionsPage.dart';
 import 'package:mep/View/components/LoginButton.dart';
 
@@ -11,9 +13,14 @@ class StartExamPage extends StatefulWidget {
 
 class _StartExamPageState extends State<StartExamPage> {
   void buttonFunction() {
-    Navigator.push(
+    final questionBloc =  QuestionBloc();
+    Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => QuestionPage()),
+      MaterialPageRoute(
+          builder: (context) => BlocProvider.value(
+                value: questionBloc,
+                child: const QuestionPage(),
+              )),
     );
   }
 
@@ -42,7 +49,7 @@ class _StartExamPageState extends State<StartExamPage> {
             children: [
               Expanded(
                 child: Image.asset(
-                  'assets/hero.png',
+                  'asset/hero.png',
                   fit: BoxFit.cover,
                   width: imageWidth,
                   height: double.infinity,

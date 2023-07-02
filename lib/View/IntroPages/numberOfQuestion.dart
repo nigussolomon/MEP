@@ -14,10 +14,14 @@ class NumberOfQuestions extends StatefulWidget {
 
 class _NumberOfQuestionsState extends State<NumberOfQuestions> {
   void buttonFunction() {
+    final questionBloc = QuestionBloc();
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => BlocProvider.value(value: questionBloc,
-      child: const QuestionPage(),)),
+      MaterialPageRoute(
+          builder: (context) => BlocProvider.value(
+                value: questionBloc,
+                child: const QuestionPage(),
+              )),
     );
   }
 
@@ -54,7 +58,8 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: screenSize.width * 0.1),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: screenSize.width * 0.1),
                   child: Container(
                     color: Colors.white,
                     child: Column(
