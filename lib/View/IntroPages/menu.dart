@@ -65,7 +65,7 @@ class _ChooseMenuState extends State<ChooseMenu> {
                           height: screenSize.height * 0.05,
                         ),
                         const Text(
-                          'MEP Berhan Driving Licence School',
+                          'ብርሃን የ ተሽከርካሪ እና የ መንጃ ፍቃድ ማሰልጠኛ ተቋም',
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -76,19 +76,19 @@ class _ChooseMenuState extends State<ChooseMenu> {
                           height: screenSize.height * 0.1,
                         ),
                         LoginButton(
-                          buttonName: "PRACTICE EXAM",
+                          buttonName: "መለመማመጃ ፈተና",
                           onPressed: questionConfiguration,
                         ),
                         SizedBox(height: screenSize.height * 0.02),
                         LoginButton(
-                          buttonName: "START EXAMINATION",
+                          buttonName: "ፈተና መውሰጃ",
                           onPressed: startExam,
                         ),
                         SizedBox(
                           height: screenSize.height * 0.02,
                         ),
                         LoginButton(
-                          buttonName: "RESOURCES",
+                          buttonName: "መረጃዎች",
                           onPressed: resourceList,
                         ),
                       ],

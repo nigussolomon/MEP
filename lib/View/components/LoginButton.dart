@@ -28,7 +28,7 @@ class LoginButton extends StatelessWidget {
             children: [
               Text(
                 buttonName,
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 20),
               ),
               Icon(
                 Icons.arrow_forward,

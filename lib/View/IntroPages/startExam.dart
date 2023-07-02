@@ -68,7 +68,7 @@ class _StartExamPageState extends State<StartExamPage> {
                           height: screenSize.height * 0.05,
                         ),
                         const Text(
-                          'MEP Berhan Driving Licence School',
+                          'ብርሃን የ ተሽከርካሪ እና የ መንጃ ፍቃድ ማሰልጠኛ ተቋም',
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -76,19 +76,19 @@ class _StartExamPageState extends State<StartExamPage> {
                           ),
                         ),
                         SizedBox(
-                          height: screenSize.height * 0.18,
+                          height: screenSize.height * 0.2,
                         ),
                         const Text(
-                          'THE EXAM HAS 50 ITEMS AND ONLY 50 MINUTES IS ALLOWED',
+                          'የ ፈተናው ጥያቄ ይዘት 50 ጥያቄ ሲሆን ጥያቄዎቹን ለ ማጠናቀቅ የሚሰጥው ደቂቃ 50 ደቂቃ ነው',
                           style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF484848),
                           ),
                         ),
-                        SizedBox(height: screenSize.height * 0.02),
+                        SizedBox(height: screenSize.height * 0.04),
                         LoginButton(
-                          buttonName: "START EXAMINATION",
+                          buttonName: "መፈተን ይጀምሩ",
                           onPressed: buttonFunction,
                         ),
                       ],

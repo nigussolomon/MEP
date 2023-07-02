@@ -58,7 +58,7 @@ class _ResourceListState extends State<ResourceList> {
                           height: screenSize.height * 0.05,
                         ),
                         const Text(
-                          'MEP Berhan Driving Licence School',
+                          'ብርሃን የ ተሽከርካሪ እና የ መንጃ ፍቃድ ማሰልጠኛ ተቋም',
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -69,26 +69,26 @@ class _ResourceListState extends State<ResourceList> {
                           height: screenSize.height * 0.1,
                         ),
                         LoginButton(
-                          buttonName: "ESSENTIAL DOCUMENTS",
+                          buttonName: "ዓስፈላጊ መረጃዎች",
                           onPressed: buttonFunction,
                         ),
                         SizedBox(height: screenSize.height * 0.02),
                         LoginButton(
-                          buttonName: "SAFETY AND YOUR VEHICLE",
+                          buttonName: "መደረግ ያለባቸው ጥንቃቄዎች",
                           onPressed: buttonFunction,
                         ),
                         SizedBox(
                           height: screenSize.height * 0.02,
                         ),
                         LoginButton(
-                          buttonName: "ROAD AND TRAFFIC SIGN",
+                          buttonName: "የ መንገድ እና የ ትራፊክ ምልክቶች",
                           onPressed: buttonFunction,
                         ),
                         SizedBox(
                           height: screenSize.height * 0.02,
                         ),
                         LoginButton(
-                          buttonName: "MOTORWAY RULES",
+                          buttonName: "የ ተሽከርካሪ ህጎች",
                           onPressed: buttonFunction,
                         ),
                       ],

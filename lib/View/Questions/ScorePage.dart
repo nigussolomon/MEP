@@ -29,7 +29,7 @@ class ScorePage extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              "You have finished the Exam",
+              "ፈተናውን ጨርሰዋል",
               style: TextStyle(
                 fontSize: height * 0.05,
               ),
@@ -38,7 +38,7 @@ class ScorePage extends StatelessWidget {
               height: height * 0.025,
             ),
             Text(
-              "Your score is $score/$total",
+              "ውጤትዎ $score/$total",
               style: TextStyle(
                 fontSize: height * 0.05,
                 color: scoreColor,
@@ -60,7 +60,7 @@ class ScorePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   RetryButon(),
-                  ChoiceButton(choiceContent: "MainMenu"),
+                  ChoiceButton(choiceContent: "ወደ ዋናው መውጫ ይመለሱ"),
                 ],
               ),
             ),

@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: screenSize.height * 0.04,
                         ),
                         const Text(
-                          'MEP Berhan Driving Licence School',
+                          'ብርሃን የ ተሽከርካሪ እና የ መንጃ ፍቃድ ማሰልጠኛ ተቋም',
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: screenSize.height * 0.12,
                         ),
                         const Text(
-                          'WELCOME TO YOUR DRIVING LICENSE EXAMINATION',
+                          'እንኳን ወደ መፈተኛው ቦታ በሰላም መጡ',
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -70,25 +70,25 @@ class _LoginPageState extends State<LoginPage> {
                         const Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'LOGIN',
+                            'መግቢያ',
                             style: TextStyle(
                               fontSize: 23,
                             ),
                           ),
                         ),
-                        SizedBox(height: screenSize.height * 0.01),
+                        SizedBox(height: screenSize.height * 0.02),
                         MyTextField(
-                          hintText: "Username",
+                          hintText: "ስም",
                           obscureText: false,
                         ),
-                        SizedBox(height: screenSize.height * 0.01),
+                        SizedBox(height: screenSize.height * 0.02),
                         MyTextField(
-                          hintText: "Password",
+                          hintText: "መለያ ቁጥር",
                           obscureText: true,
                         ),
-                        SizedBox(height: screenSize.height * 0.01),
+                        SizedBox(height: screenSize.height * 0.02),
                         LoginButton(
-                          buttonName: "LOGIN",
+                          buttonName: "ይግቡ",
                           onPressed: buttonFunction,
                         ),
                       ],

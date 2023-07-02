@@ -70,7 +70,7 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
                           height: screenSize.height * 0.05,
                         ),
                         const Text(
-                          'MEP Berhan Driving Licence School',
+                          'ብርሃን የ ተሽከርካሪ እና የ መንጃ ፍቃድ ማሰልጠኛ ተቋም',
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -86,7 +86,7 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Text(
-                                  "CURATE YOUR EXAM",
+                                  "የ ፈተናወን ጥያቄ ያዋቅሩ",
                                   style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
@@ -122,7 +122,7 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
                             Padding(
                               padding: EdgeInsets.only(right: 40),
                               child: QuestionField(
-                                fieldName: "ESSENTIALS",
+                                fieldName: "መደብ 1",
                                 hintText: "0",
                               ),
                             ),
@@ -132,7 +132,7 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
                             Padding(
                               padding: EdgeInsets.only(right: 40),
                               child: QuestionField(
-                                fieldName: "SAFETY AND YOUR VEHICLE",
+                                fieldName: "መደብ 2",
                                 hintText: "0",
                               ),
                             ),
@@ -142,7 +142,7 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
                             Padding(
                               padding: EdgeInsets.only(right: 40),
                               child: QuestionField(
-                                fieldName: "ROAD AND TRAFFIC SIGN",
+                                fieldName: "መደብ 3",
                                 hintText: "0",
                               ),
                             ),
@@ -152,7 +152,7 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
                             Padding(
                               padding: EdgeInsets.only(right: 40),
                               child: QuestionField(
-                                fieldName: "MOTORWAY RULES",
+                                fieldName: "መደብ 4",
                                 hintText: "0",
                               ),
                             ),
@@ -162,7 +162,7 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
                           height: screenSize.height * 0.05,
                         ),
                         LoginButton(
-                          buttonName: "GENERATE YOUR EXAM",
+                          buttonName: "የ ሙከራ ፈተናወን ጀምር",
                           onPressed: buttonFunction,
                         ),
                       ],

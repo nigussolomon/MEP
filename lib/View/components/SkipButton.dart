@@ -38,11 +38,11 @@ class _SkipButtonState extends State<SkipButton> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "Skip Question",
+                "ጥያቄ ይዝለሉ",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: height * 0.02,
+                  fontSize: height * 0.03,
                 ),
               ),
               Icon(
