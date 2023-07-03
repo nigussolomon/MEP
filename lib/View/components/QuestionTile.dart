@@ -45,8 +45,8 @@ class _QuestionTileState extends State<QuestionTile> {
                 padding: EdgeInsets.only(left: 10),
                 child: Text(
                   widget.questionContent,
-                  style:
-                      const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 25),
                 ),
               ),
               SizedBox(
