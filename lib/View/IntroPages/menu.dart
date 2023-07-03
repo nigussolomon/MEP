@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mep/View/IntroPages/login.dart';
 import 'package:mep/View/IntroPages/numberOfQuestion.dart';
 import 'package:mep/View/IntroPages/resourseList.dart';
 import 'package:mep/View/IntroPages/startExam.dart';
@@ -47,6 +48,12 @@ class _ChooseMenuState extends State<ChooseMenu> {
             backgroundColor: Color(0xFF484848),
             child: BackButton(
               color: Colors.white,
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
+              },
             ),
           ),
         ),
