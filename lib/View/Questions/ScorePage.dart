@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mep/Bloc/question/question_bloc.dart';
 import 'package:mep/View/Questions/QuestionsPage.dart';
 import 'package:mep/View/components/ChoiceButton.dart';
+import 'package:mep/View/components/MenuButton.dart';
 import 'package:mep/View/components/RetryButton.dart';
 
 class ScorePage extends StatelessWidget {
@@ -60,7 +61,7 @@ class ScorePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   RetryButon(),
-                  ChoiceButton(choiceContent: "MainMenu"),
+                  MenuButton(),
                 ],
               ),
             ),
