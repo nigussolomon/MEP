@@ -11,6 +11,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  TextEditingController nameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   void buttonFunction() {
     Navigator.push(
       context,
@@ -78,11 +82,13 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         SizedBox(height: screenSize.height * 0.02),
                         MyTextField(
+                          controller: nameController,
                           hintText: "ስም",
                           obscureText: false,
                         ),
                         SizedBox(height: screenSize.height * 0.02),
                         MyTextField(
+                          controller: passwordController,
                           hintText: "መለያ ቁጥር",
                           obscureText: false,
                         ),
