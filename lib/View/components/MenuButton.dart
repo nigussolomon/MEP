@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mep/Bloc/question/question_bloc.dart';
+import 'package:mep/View/IntroPages/menu.dart';
 
 class MenuButton extends StatefulWidget {
   const MenuButton({super.key});
@@ -25,7 +26,7 @@ class _MenuButtonState extends State<MenuButton> {
             MaterialPageRoute(
               builder: (context) => BlocProvider.value(
                 value: questionBloc,
-                child: const Placeholder(),
+                child: const ChooseMenu(),
               ),
             ),
           );
