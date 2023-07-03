@@ -19,6 +19,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
               seedColor: const Color.fromARGB(255, 72, 72, 72)),
+              fontFamily: 'AbyssinicaSIL-Regular',
+              
           // useMaterial3: true,
         ),
         debugShowCheckedModeBanner: false,
