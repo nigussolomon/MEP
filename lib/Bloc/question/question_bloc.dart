@@ -54,17 +54,22 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
         choice4: "ሁሉም መልስ ነው",
         answer: "ሁሉም መልስ ነው",
         topic: "የጉዞ መረጃ አሰባሰብ");
-    mockQuestion.add(question1);
-    mockQuestion.add(question2);
-    mockQuestion.add(question3);
-    mockQuestion.add(question4);
 
-    //backing up
-    mockQuestionBackup = mockQuestion;
     on<GetQuestions>((event, emit) async {
       emit(QuestionLoadingState());
       // dynamic apiQuestion = await _apiServiceProvider.fetchQuestion();
+
+      //initializing.....
       index = mark = 0;
+      mockQuestion = [];
+      mockQuestionBackup = [];
+
+      mockQuestion.add(question1);
+      mockQuestion.add(question2);
+      mockQuestion.add(question3);
+      mockQuestion.add(question4);
+
+      mockQuestionBackup = mockQuestion;
       emit(QuestionSuccessState(question: mockQuestion));
     });
 
@@ -79,13 +84,27 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
       if (lastQuestion(index, mockQuestion.length - 1)) {
         final String comment;
         final Color scoreColor;
+
+        //to get the original number of questions
+        mockQuestion = [];
+        mockQuestionBackup = [];
+
+        mockQuestion.add(question1);
+        mockQuestion.add(question2);
+        mockQuestion.add(question3);
+        mockQuestion.add(question4);
+
+        mockQuestionBackup = mockQuestion;
+
+        //...
         if (mark < (mockQuestionBackup.length / 2)) {
-          comment = "ይሄ ውጤት አያሳልፍም በ ቀጣዩ መልካም እድል";
+          comment = "Better luck next time";
           scoreColor = Colors.red;
         } else {
-          comment = "እንኳን ደስ አሎት ዓልፈዋል";
+          comment = "Welldone";
           scoreColor = Colors.green;
         }
+
         emit(QuestionDoneState(
             mark, mockQuestionBackup.length, comment, scoreColor));
       } else {
