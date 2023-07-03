@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mep/Bloc/question/question_bloc.dart';
-import 'package:mep/View/Questions/QuestionsPage.dart';
-import 'package:mep/View/components/ChoiceButton.dart';
 import 'package:mep/View/components/MenuButton.dart';
 import 'package:mep/View/components/RetryButton.dart';
 
@@ -30,7 +26,7 @@ class ScorePage extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              "You have finished the Exam",
+              "ፈተናውን ጨርሰዋል",
               style: TextStyle(
                 fontSize: height * 0.05,
               ),
@@ -39,7 +35,7 @@ class ScorePage extends StatelessWidget {
               height: height * 0.025,
             ),
             Text(
-              "Your score is $score/$total",
+              "ውጤትዎ $score/$total",
               style: TextStyle(
                 fontSize: height * 0.05,
                 color: scoreColor,

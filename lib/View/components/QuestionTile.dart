@@ -41,10 +41,13 @@ class _QuestionTileState extends State<QuestionTile> {
           ),
           child: Column(
             children: [
-              Text(
-                widget.questionContent,
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Text(
+                  widget.questionContent,
+                  style:
+                      const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                ),
               ),
               SizedBox(
                 height: height * 0.05,

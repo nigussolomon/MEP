@@ -46,11 +46,11 @@ class _RetryButonState extends State<RetryButon> {
           ),
           child: Center(
             child: Text(
-              "Retry",
+              "እንደገና ይሞከሩ",
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontSize: height * 0.02,
+                fontSize: height * 0.03,
               ),
             ),
           ),
