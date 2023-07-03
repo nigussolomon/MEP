@@ -4,7 +4,6 @@ import 'package:mep/View/IntroPages/resourseList.dart';
 import 'package:mep/View/IntroPages/startExam.dart';
 import 'package:mep/View/components/LoginButton.dart';
 
-
 class ChooseMenu extends StatefulWidget {
   const ChooseMenu({super.key});
 
@@ -40,6 +39,20 @@ class _ChooseMenuState extends State<ChooseMenu> {
     final double imageWidth = screenSize.width * 0.5;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        leading: Padding(
+          padding: EdgeInsets.only(top: 15, left: 15),
+          child: CircleAvatar(
+            backgroundColor: Color(0xFF484848),
+            child: BackButton(
+              color: Colors.white,
+            ),
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: Center(
         child: Container(
           child: Row(
@@ -54,7 +67,8 @@ class _ChooseMenuState extends State<ChooseMenu> {
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: screenSize.width * 0.1),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: screenSize.width * 0.1),
                   child: Container(
                     color: Colors.white,
                     child: Column(

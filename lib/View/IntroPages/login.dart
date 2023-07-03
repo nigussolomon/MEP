@@ -12,7 +12,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   void buttonFunction() {
-    Navigator.pushReplacement(
+    Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const ChooseMenu()),
     );
@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(height: screenSize.height * 0.02),
                         MyTextField(
                           hintText: "መለያ ቁጥር",
-                          obscureText: true,
+                          obscureText: false,
                         ),
                         SizedBox(height: screenSize.height * 0.02),
                         LoginButton(

@@ -29,8 +29,10 @@ class QuestionField extends StatelessWidget {
           ),
           child: Center(
             child: TextField(
+              maxLength: 2,
               textAlign: TextAlign.center,
               decoration: InputDecoration(
+                counterText:'',
                 hintText: hintText,
                 hintStyle: TextStyle(color: Colors.black),
                 border: InputBorder.none,

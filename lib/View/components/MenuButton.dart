@@ -46,17 +46,16 @@ class _MenuButtonState extends State<MenuButton> {
           ),
           child: Center(
             child: Text(
-              "MainMenu",
+              "ወደ ዋና ማውጫ ይመለሱ",
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontSize: height * 0.02,
+                fontSize: height * 0.03,
               ),
             ),
           ),
         ),
       ),
     );
-    ;
   }
 }
