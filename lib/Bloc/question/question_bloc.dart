@@ -80,10 +80,10 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
         final String comment;
         final Color scoreColor;
         if (mark < (mockQuestionBackup.length / 2)) {
-          comment = "Better luck next time";
+          comment = "ይሄ ውጤት አያሳልፍም በ ቀጣዩ መልካም እድል";
           scoreColor = Colors.red;
         } else {
-          comment = "Welldone";
+          comment = "እንኳን ደስ አሎት ዓልፈዋል";
           scoreColor = Colors.green;
         }
         emit(QuestionDoneState(

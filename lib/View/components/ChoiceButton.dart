@@ -42,8 +42,8 @@ class _ChoiceButtonState extends State<ChoiceButton> {
               widget.choiceContent,
               style: TextStyle(
                 color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: height * 0.02,
+                // fontWeight: FontWeight.bold,
+                fontSize: height * 0.03,
               ),
             ),
           ),
