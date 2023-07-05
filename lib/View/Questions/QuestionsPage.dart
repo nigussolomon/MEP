@@ -6,6 +6,9 @@ import 'package:mep/View/components/QuestionTile.dart';
 import 'package:mep/View/components/SkipButton.dart';
 import 'dart:async';
 
+//global variable....so that question_bloc can access it
+bool timeUp = false;
+
 class QuestionPage extends StatefulWidget {
   const QuestionPage({super.key});
 
@@ -16,7 +19,7 @@ class QuestionPage extends StatefulWidget {
 class _QuestionPageState extends State<QuestionPage> {
   int seconds = 0;
   late Timer timer;
-  final int durationInMunites = 2;
+  final int durationInMunites = 60;
   @override
   void initState() {
     setState(() {
@@ -35,6 +38,7 @@ class _QuestionPageState extends State<QuestionPage> {
           seconds--;
         } else {
           timer.cancel();
+          timeUp = true;
         }
       });
     });
