@@ -36,13 +36,13 @@ class _QuestionTileState extends State<QuestionTile> {
           padding: EdgeInsets.only(
             left: width * 0.3,
             right: width * 0.3,
-            top: height * 0.3,
+            top: height * 0.2,
             bottom: height * 0.05,
           ),
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 10),
                 child: Text(
                   widget.questionContent,
                   style: const TextStyle(
