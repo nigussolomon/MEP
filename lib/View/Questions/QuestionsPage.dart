@@ -89,20 +89,35 @@ class _QuestionPageState extends State<QuestionPage> {
             return Column(
               children: [
                 Container(
-                  child: Column(
-                    children: [
-                      QuestionTile(
-                          id: state.question?[state.index].id,
-                          questionContent:
-                              state.question![state.index].questionContent,
-                          choice1: state.question![state.index].choice1,
-                          choice2: state.question![state.index].choice2,
-                          choice3: state.question![state.index].choice3,
-                          choice4: state.question![state.index].choice4,
-                          answer: state.question![state.index].answer,
-                          topic: state.question![state.index].topic),
-                      Text('Elapsed Time: ${getTimerText()}'),
-                    ],
+                  child: Padding(
+                    padding: EdgeInsets.all(height * 0.02),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          'Elapsed Time: ${getTimerText()}',
+                          style: const TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            QuestionTile(
+                                id: state.question?[state.index].id,
+                                questionContent: state
+                                    .question![state.index].questionContent,
+                                choice1: state.question![state.index].choice1,
+                                choice2: state.question![state.index].choice2,
+                                choice3: state.question![state.index].choice3,
+                                choice4: state.question![state.index].choice4,
+                                answer: state.question![state.index].answer,
+                                topic: state.question![state.index].topic),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 const SkipButton(),
