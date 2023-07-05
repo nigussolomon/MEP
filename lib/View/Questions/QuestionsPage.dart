@@ -4,6 +4,7 @@ import 'package:mep/Bloc/question/question_bloc.dart';
 import 'package:mep/View/Questions/ScorePage.dart';
 import 'package:mep/View/components/QuestionTile.dart';
 import 'package:mep/View/components/SkipButton.dart';
+import 'dart:async';
 
 class QuestionPage extends StatefulWidget {
   const QuestionPage({super.key});
@@ -13,12 +14,44 @@ class QuestionPage extends StatefulWidget {
 }
 
 class _QuestionPageState extends State<QuestionPage> {
+  int seconds = 0;
+  late Timer timer;
+  final int durationInMunites = 2;
   @override
   void initState() {
     setState(() {
       BlocProvider.of<QuestionBloc>(context).add(GetQuestions());
     });
+    //timer related
+    seconds = durationInMunites * 60;
+    startCountdown();
     super.initState();
+  }
+
+  void startCountdown() {
+    timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
+      setState(() {
+        if (seconds > 0) {
+          seconds--;
+        } else {
+          timer.cancel();
+        }
+      });
+    });
+  }
+
+  String getTimerText() {
+    int minutes = seconds ~/ 60;
+    int _seconds = seconds % 60;
+    String minutesStr = (minutes % 60).toString().padLeft(2, '0');
+    String secondsStr = (_seconds % 60).toString().padLeft(2, '0');
+    return '$minutesStr:$secondsStr';
+  }
+
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
   }
 
   @override
@@ -67,7 +100,8 @@ class _QuestionPageState extends State<QuestionPage> {
                           choice3: state.question![state.index].choice3,
                           choice4: state.question![state.index].choice4,
                           answer: state.question![state.index].answer,
-                          topic: state.question![state.index].topic)
+                          topic: state.question![state.index].topic),
+                      Text('Elapsed Time: ${getTimerText()}'),
                     ],
                   ),
                 ),
