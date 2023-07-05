@@ -5,6 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:mep/Data/Model/Question.dart';
 import 'package:mep/Service/ApiService.dart';
+import 'package:mep/View/Questions/QuestionsPage.dart';
 
 part 'question_event.dart';
 part 'question_state.dart';
@@ -81,7 +82,10 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
         mark++;
       }
 
-      if (lastQuestion(index, mockQuestion.length - 1)) {
+      if (lastQuestion(index, mockQuestion.length - 1) || timeUp) {
+        //revert timer
+        timeUp = false;
+
         final String comment;
         final Color scoreColor;
 
