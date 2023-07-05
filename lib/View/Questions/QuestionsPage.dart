@@ -57,6 +57,7 @@ class _QuestionPageState extends State<QuestionPage> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: BlocBuilder<QuestionBloc, QuestionState>(
         builder: (context, state) {
@@ -90,16 +91,20 @@ class _QuestionPageState extends State<QuestionPage> {
               children: [
                 Container(
                   child: Padding(
-                    padding: EdgeInsets.all(height * 0.02),
+                    padding: EdgeInsets.only(
+                      left: width * 0.02,
+                      right: width * 0.02,
+                      top: height * 0.02,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
-                          'Elapsed Time: ${getTimerText()}',
+                          'የቀረ ጊዜ: ${getTimerText()}',
                           style: const TextStyle(
                             fontSize: 25,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                         Column(
