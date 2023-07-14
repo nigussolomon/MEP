@@ -142,6 +142,7 @@ class _QuestionPageState extends State<QuestionPage> {
             );
           } else if (state is QuestionDoneState) {
             return ScorePage(
+              isOnExamPage: widget.isOnExamPage,
               score: state.score,
               total: state.total,
               comment: state.comment,
