@@ -29,8 +29,8 @@ class _ChoiceButtonState extends State<ChoiceButton> {
         },
         child: Container(
           padding: EdgeInsets.all(height * 0.023),
-          height: height * 0.077,
-          width: width * 0.15,
+          // height: height * 0.077,
+          // width: width * 0.15,
           decoration: BoxDecoration(
             color: isHovering
                 ? Colors.grey[700]
@@ -45,6 +45,8 @@ class _ChoiceButtonState extends State<ChoiceButton> {
                 // fontWeight: FontWeight.bold,
                 fontSize: height * 0.03,
               ),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
             ),
           ),
         ),

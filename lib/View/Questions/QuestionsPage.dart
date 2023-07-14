@@ -10,7 +10,11 @@ import 'dart:async';
 bool timeUp = false;
 
 class QuestionPage extends StatefulWidget {
-  const QuestionPage({super.key});
+  final bool isOnExamPage;
+  const QuestionPage({
+    required this.isOnExamPage,
+    super.key,
+  });
 
   @override
   State<QuestionPage> createState() => _QuestionPageState();
@@ -18,8 +22,8 @@ class QuestionPage extends StatefulWidget {
 
 class _QuestionPageState extends State<QuestionPage> {
   int seconds = 0;
-  late Timer timer;
-  final int durationInMunites = 60;
+  Timer timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {});
+  final int durationInMunites = 50;
   @override
   void initState() {
     setState(() {
@@ -27,7 +31,9 @@ class _QuestionPageState extends State<QuestionPage> {
     });
     //timer related
     seconds = durationInMunites * 60;
-    startCountdown();
+    if (widget.isOnExamPage) {
+      startCountdown();
+    }
     super.initState();
   }
 
@@ -105,7 +111,9 @@ class _QuestionPageState extends State<QuestionPage> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
-                          'የቀረ ጊዜ: ${getTimerText()}',
+                          widget.isOnExamPage
+                              ? 'የቀረ ጊዜ: ${getTimerText()}'
+                              : "",
                           style: const TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w500,
@@ -134,6 +142,7 @@ class _QuestionPageState extends State<QuestionPage> {
             );
           } else if (state is QuestionDoneState) {
             return ScorePage(
+              isOnExamPage: widget.isOnExamPage,
               score: state.score,
               total: state.total,
               comment: state.comment,
