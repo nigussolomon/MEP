@@ -36,8 +36,8 @@ class _QuestionTileState extends State<QuestionTile> {
           padding: EdgeInsets.only(
             left: width * 0.3,
             right: width * 0.3,
-            top: height * 0.2,
-            bottom: height * 0.05,
+            top: height * 0.05,
+            bottom: height * 0.01,
           ),
           child: Column(
             children: [
@@ -54,20 +54,10 @@ class _QuestionTileState extends State<QuestionTile> {
               ),
               Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ChoiceButton(choiceContent: widget.choice1),
-                      ChoiceButton(choiceContent: widget.choice2),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ChoiceButton(choiceContent: widget.choice3),
-                      ChoiceButton(choiceContent: widget.choice4),
-                    ],
-                  ),
+                  ChoiceButton(choiceContent: widget.choice1),
+                  ChoiceButton(choiceContent: widget.choice2),
+                  ChoiceButton(choiceContent: widget.choice3),
+                  ChoiceButton(choiceContent: widget.choice4),
                 ],
               ),
             ],
