@@ -26,7 +26,9 @@ class _RetryButonState extends State<RetryButon> {
             MaterialPageRoute(
               builder: (context) => BlocProvider.value(
                 value: questionBloc,
-                child: const QuestionPage(),
+                child: const QuestionPage(
+                  isOnExamPage: false,
+                ),
               ),
             ),
           );

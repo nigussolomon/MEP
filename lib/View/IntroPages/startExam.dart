@@ -13,13 +13,15 @@ class StartExamPage extends StatefulWidget {
 
 class _StartExamPageState extends State<StartExamPage> {
   void buttonFunction() {
-    final questionBloc =  QuestionBloc();
+    final questionBloc = QuestionBloc();
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
           builder: (context) => BlocProvider.value(
                 value: questionBloc,
-                child: const QuestionPage(),
+                child: const QuestionPage(
+                  isOnExamPage: true,
+                ),
               )),
     );
   }
@@ -57,7 +59,8 @@ class _StartExamPageState extends State<StartExamPage> {
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: screenSize.width * 0.1),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: screenSize.width * 0.1),
                   child: Container(
                     color: Colors.white,
                     child: Column(

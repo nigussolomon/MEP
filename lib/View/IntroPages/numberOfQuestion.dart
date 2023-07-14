@@ -20,7 +20,9 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
       MaterialPageRoute(
           builder: (context) => BlocProvider.value(
                 value: questionBloc,
-                child: const QuestionPage(),
+                child: const QuestionPage(
+                  isOnExamPage: false,
+                ),
               )),
     );
   }
