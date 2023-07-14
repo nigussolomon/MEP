@@ -23,7 +23,7 @@ class QuestionPage extends StatefulWidget {
 class _QuestionPageState extends State<QuestionPage> {
   int seconds = 0;
   Timer timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {});
-  final int durationInMunites = 60;
+  final int durationInMunites = 50;
   @override
   void initState() {
     setState(() {
