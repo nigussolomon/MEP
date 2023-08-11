@@ -5,6 +5,7 @@ import 'package:mep/View/Questions/ScorePage.dart';
 import 'package:mep/View/components/QuestionTile.dart';
 import 'package:mep/View/components/SkipButton.dart';
 import 'dart:async';
+import 'package:shared_preferences/shared_preferences.dart';
 
 //global variable....so that question_bloc can access it
 bool timeUp = false;
@@ -17,6 +18,9 @@ class QuestionPage extends StatefulWidget {
 }
 
 class _QuestionPageState extends State<QuestionPage> {
+  late SharedPreferences _prefs;
+  String? storedName;
+  String? storedID;
   int seconds = 0;
   late Timer timer;
   final int durationInMunites = 60;
@@ -29,6 +33,7 @@ class _QuestionPageState extends State<QuestionPage> {
     seconds = durationInMunites * 60;
     startCountdown();
     super.initState();
+    _loadStoredAnswer();
   }
 
   void startCountdown() {
@@ -56,6 +61,14 @@ class _QuestionPageState extends State<QuestionPage> {
   void dispose() {
     timer.cancel();
     super.dispose();
+  }
+
+  void _loadStoredAnswer() async {
+    _prefs = await SharedPreferences.getInstance();
+    setState(() {
+      storedName = _prefs.getString('name');
+      storedID = _prefs.getString('password');
+    });
   }
 
   @override
@@ -104,12 +117,28 @@ class _QuestionPageState extends State<QuestionPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Text(
-                          'የቀረ ጊዜ: ${getTimerText()}',
-                          style: const TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.w500,
-                          ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              storedName!,
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w600),
+                            ),
+                            Text(
+                              storedID!,
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w600),
+                            ),
+                            Text(
+                              'የቀረ ጊዜ: ${getTimerText()}',
+                              style: const TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
                         ),
                         Column(
                           children: [

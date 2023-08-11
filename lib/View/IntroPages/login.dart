@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mep/View/IntroPages/menu.dart';
 import 'package:mep/View/components/LoginButton.dart';
 import 'package:mep/View/components/LoginTextField.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -11,17 +12,42 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  void buttonFunction() {
+  void buttonFunction() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('name', nameController.text);
+    await prefs.setString('password', passwordController.text);
+
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => const ChooseMenu()),
     );
   }
 
+  @override
+  void initState() {
+    super.initState();
+    _loadSavedValues();
+  }
+
+  void _loadSavedValues() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      prefs.setString('name', '');
+      prefs.setString('password', '');
+    });
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     final double imageWidth = screenSize.width * 0.5;
