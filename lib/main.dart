@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mep/View/IntroPages/login.dart';
+import 'package:mep/View/IntroPages/Setup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'AbyssinicaSIL-Regular',
       ),
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: SetupPage(),
     );
   }
 }
