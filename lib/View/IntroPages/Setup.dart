@@ -1,30 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:mep/View/IntroPages/Setup.dart';
+import 'package:mep/View/IntroPages/login.dart';
 import 'package:mep/View/IntroPages/menu.dart';
 import 'package:mep/View/components/LoginButton.dart';
 import 'package:mep/View/components/LoginTextField.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SetupPage extends StatefulWidget {
+  const SetupPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SetupPage> createState() => _SetupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SetupPageState extends State<SetupPage> {
   TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  String? name_of_school = "";
 
   void buttonFunction() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('name', nameController.text);
-    await prefs.setString('password', passwordController.text);
+    await prefs.setString('name_of_school', nameController.text);
 
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const ChooseMenu()),
+      MaterialPageRoute(builder: (context) => const LoginPage()),
     );
   }
 
@@ -36,14 +33,13 @@ class _LoginPageState extends State<LoginPage> {
 
   void _loadSavedValues() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    name_of_school = prefs.getString("name_of_school");
-    if (name_of_school == null || name_of_school == "") {
+    String? name_of_school = prefs.getString("name_of_school");
+    if (name_of_school != null && name_of_school != "") {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const SetupPage()),
+        MaterialPageRoute(builder: (context) => const LoginPage()),
       );
     }
-
     setState(() {
       prefs.setString('name', '');
       prefs.setString('password', '');
@@ -53,7 +49,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void dispose() {
     nameController.dispose();
-    passwordController.dispose();
     super.dispose();
   }
 
@@ -87,30 +82,11 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(
                           height: screenSize.height * 0.04,
                         ),
-                        Text(
-                          name_of_school!,
-                          style: const TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF484848),
-                          ),
-                        ),
-                        SizedBox(
-                          height: screenSize.height * 0.12,
-                        ),
-                        const Text(
-                          'እንኳን ወደ መፈተኛው ቦታ በሰላም መጡ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF484848),
-                          ),
-                        ),
                         SizedBox(height: screenSize.height * 0.02),
                         const Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'መግቢያ',
+                            'SETUP APP',
                             style: TextStyle(
                               fontSize: 23,
                             ),
@@ -120,12 +96,6 @@ class _LoginPageState extends State<LoginPage> {
                         MyTextField(
                           controller: nameController,
                           hintText: "ስም",
-                          obscureText: false,
-                        ),
-                        SizedBox(height: screenSize.height * 0.02),
-                        MyTextField(
-                          controller: passwordController,
-                          hintText: "መለያ ቁጥር",
                           obscureText: false,
                         ),
                         SizedBox(height: screenSize.height * 0.02),
