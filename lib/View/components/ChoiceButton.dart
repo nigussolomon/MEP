@@ -3,11 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mep/Bloc/question/question_bloc.dart';
 
 class ChoiceButton extends StatefulWidget {
-  final String choiceContent;
+  final String? choiceContent;
+
   const ChoiceButton({
     required this.choiceContent,
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<ChoiceButton> createState() => _ChoiceButtonState();
@@ -15,15 +16,22 @@ class ChoiceButton extends StatefulWidget {
 
 class _ChoiceButtonState extends State<ChoiceButton> {
   bool isHovering = false;
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+
+    // Check if choiceContent is null before rendering the widget
+    if (widget.choiceContent == "null") {
+      return const SizedBox.shrink(); // Return an empty SizedBox
+    }
+
     return Padding(
       padding: EdgeInsets.all(height * 0.02),
       child: InkWell(
-        onTap: () => BlocProvider.of<QuestionBloc>(context)
-            .add(ChooseAnswer(widget.choiceContent)),
+        onTap: () => BlocProvider.of<QuestionBloc>(context).add(ChooseAnswer(
+            widget.choiceContent!)), // Use ! to assert non-nullability
         onHover: (hovering) {
           setState(() => isHovering = hovering);
         },
@@ -39,7 +47,7 @@ class _ChoiceButtonState extends State<ChoiceButton> {
           ),
           child: Center(
             child: Text(
-              widget.choiceContent,
+              widget.choiceContent!,
               style: TextStyle(
                 color: Colors.white,
                 // fontWeight: FontWeight.bold,
