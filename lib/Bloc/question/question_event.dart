@@ -19,3 +19,8 @@ class SkipQuestion extends QuestionEvent {
   @override
   List<Object> get props => [];
 }
+
+class ForceQuit extends QuestionEvent {
+  @override
+  List<Object> get props => [];
+}

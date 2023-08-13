@@ -7,11 +7,13 @@ class ScorePage extends StatelessWidget {
   final int total;
   final String comment;
   final Color scoreColor;
+  final bool retry;
   const ScorePage(
       {required this.score,
       required this.total,
       required this.comment,
       required this.scoreColor,
+      required this.retry,
       super.key});
 
   @override
@@ -51,16 +53,27 @@ class ScorePage extends StatelessWidget {
             SizedBox(
               height: height * 0.2,
             ),
-            Padding(
-              padding: EdgeInsets.only(left: width * 0.2, right: width * 0.2),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  RetryButon(),
-                  MenuButton(),
-                ],
+            if (retry)
+              Padding(
+                padding: EdgeInsets.only(left: width * 0.2, right: width * 0.2),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    RetryButon(),
+                    MenuButton(),
+                  ],
+                ),
+              )
+            else
+              Padding(
+                padding: EdgeInsets.only(left: width * 0.2, right: width * 0.2),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MenuButton(),
+                  ],
+                ),
               ),
-            ),
           ],
         ),
       ),

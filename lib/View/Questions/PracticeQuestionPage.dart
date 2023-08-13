@@ -8,58 +8,31 @@ import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 
 //global variable....so that question_bloc can access it
-bool timeUp = false;
 
-class QuestionPage extends StatefulWidget {
-  const QuestionPage({super.key});
+class PracticeQuestionPage extends StatefulWidget {
+  const PracticeQuestionPage({super.key});
 
   @override
-  State<QuestionPage> createState() => _QuestionPageState();
+  State<PracticeQuestionPage> createState() => _PracticeQuestionPageState();
 }
 
-class _QuestionPageState extends State<QuestionPage> {
+class _PracticeQuestionPageState extends State<PracticeQuestionPage> {
   late SharedPreferences _prefs;
   String? storedName;
   String? storedID;
   int seconds = 0;
-  late Timer timer;
   final int durationInMunites = 1;
   @override
   void initState() {
     setState(() {
       BlocProvider.of<QuestionBloc>(context).add(GetQuestions());
     });
-    //timer related
-    seconds = durationInMunites * 60;
-    startCountdown();
     super.initState();
     _loadStoredAnswer();
   }
 
-  void startCountdown() {
-    timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
-      setState(() {
-        if (seconds > 0) {
-          seconds--;
-        } else {
-          timer.cancel();
-          timeUp = true;
-        }
-      });
-    });
-  }
-
-  String getTimerText() {
-    int minutes = seconds ~/ 60;
-    int _seconds = seconds % 60;
-    String minutesStr = (minutes % 60).toString().padLeft(2, '0');
-    String secondsStr = (_seconds % 60).toString().padLeft(2, '0');
-    return '$minutesStr:$secondsStr';
-  }
-
   @override
   void dispose() {
-    timer.cancel();
     super.dispose();
   }
 
@@ -131,13 +104,6 @@ class _QuestionPageState extends State<QuestionPage> {
                               style: const TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w600),
                             ),
-                            Text(
-                              'የቀረ ጊዜ: ${getTimerText()}',
-                              style: const TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
                           ],
                         ),
                         Column(
@@ -164,12 +130,11 @@ class _QuestionPageState extends State<QuestionPage> {
             );
           } else if (state is QuestionDoneState) {
             return ScorePage(
-              score: state.score,
-              total: state.total,
-              comment: state.comment,
-              scoreColor: state.scoreColor,
-              retry: false,
-            );
+                score: state.score,
+                total: state.total,
+                comment: state.comment,
+                scoreColor: state.scoreColor,
+                retry: true);
           }
           return Container();
         },

@@ -26,9 +26,13 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
       ByteData data = await rootBundle.load('asset/questions.xlsx');
       var bytes = data.buffer.asUint8List();
       var excel = Excel.decodeBytes(Uint8List.fromList(bytes));
-      var table = excel.tables['driving'];
+      var table1 = excel.tables['driving'];
+      var table2 = excel.tables['communication'];
+      table1!.rows.removeAt(0);
+      table2!.rows.removeAt(0);
+      var table = table1.rows + table2.rows;
 
-      for (var row in table!.rows) {
+      for (var row in table) {
         if (row[0] != null) {
           var question = Question(
             id: 1,
@@ -41,14 +45,14 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
             choice4: row[5].toString().split(', ').length > 2
                 ? row[5].toString().split(', ')[0].substring(5)
                 : "null",
+            choice5: row[6].toString().split(', ').length > 2
+                ? row[6].toString().split(', ')[0].substring(5)
+                : "null",
             answer: row[7].toString().split(', ')[0].substring(5),
             topic: "Communication",
           );
           mockQuestion.add(question);
         }
-      }
-      if (mockQuestion.isNotEmpty) {
-        mockQuestion.removeAt(0);
       }
       mockQuestion.shuffle();
       int numQuestionsToSelect = min(50, mockQuestion.length);

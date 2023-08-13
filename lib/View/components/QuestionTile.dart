@@ -8,6 +8,7 @@ class QuestionTile extends StatefulWidget {
   final String choice2;
   final String choice3;
   final String choice4;
+  final String choice5;
   final String answer;
   final String topic;
   const QuestionTile(
@@ -17,6 +18,7 @@ class QuestionTile extends StatefulWidget {
       required this.choice2,
       required this.choice3,
       required this.choice4,
+      required this.choice5,
       required this.answer,
       required this.topic,
       super.key});
@@ -66,6 +68,12 @@ class _QuestionTileState extends State<QuestionTile> {
                     children: [
                       ChoiceButton(choiceContent: widget.choice3),
                       ChoiceButton(choiceContent: widget.choice4),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ChoiceButton(choiceContent: widget.choice5),
                     ],
                   ),
                 ],

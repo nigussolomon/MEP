@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mep/Bloc/question/question_bloc.dart';
-import 'package:mep/View/Questions/QuestionsPage.dart';
 import 'package:mep/View/components/LoginButton.dart';
 import 'package:mep/View/components/QuestionField.dart';
+
+import '../Questions/PracticeQuestionPage.dart';
 
 class NumberOfQuestions extends StatefulWidget {
   const NumberOfQuestions({super.key});
@@ -20,7 +21,7 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
       MaterialPageRoute(
           builder: (context) => BlocProvider.value(
                 value: questionBloc,
-                child: const QuestionPage(),
+                child: const PracticeQuestionPage(),
               )),
     );
   }
