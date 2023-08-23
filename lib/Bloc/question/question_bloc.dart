@@ -1,7 +1,8 @@
 import 'dart:typed_data';
 import 'dart:ui';
+import 'dart:io';
 import 'dart:math';
-
+import 'package:path/path.dart' as path;
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +24,10 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
 
   QuestionBloc() : super(QuestionInitialState()) {
     on<GetQuestions>((event, emit) async {
-      ByteData data = await rootBundle.load('asset/questions.xlsx');
-      var bytes = data.buffer.asUint8List();
+      var assetPath = "asset/questions.xlsx";
+      var filePath = path.join(path.current, assetPath);
+      var file = File(filePath);
+      var bytes = file.readAsBytesSync();
       var excel = Excel.decodeBytes(Uint8List.fromList(bytes));
       var table1 = excel.tables['driving'];
       var table2 = excel.tables['communication'];
