@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mep/View/IntroPages/login.dart';
-import 'package:mep/View/IntroPages/menu.dart';
 import 'package:mep/View/components/LoginButton.dart';
 import 'package:mep/View/components/LoginTextField.dart';
 import 'package:shared_preferences/shared_preferences.dart';

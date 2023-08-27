@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mep/View/IntroPages/login.dart';
-import 'package:mep/View/IntroPages/numberOfQuestion.dart';
 import 'package:mep/View/IntroPages/resourseList.dart';
-import 'package:mep/View/IntroPages/startExam.dart';
 import 'package:mep/View/components/LoginButton.dart';
+import 'package:mep/View/IntroPages/examType.dart';
+import 'package:mep/View/IntroPages/finalExamType.dart';
 
 class ChooseMenu extends StatefulWidget {
   const ChooseMenu({super.key});
@@ -16,14 +16,14 @@ class _ChooseMenuState extends State<ChooseMenu> {
   void questionConfiguration() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const NumberOfQuestions()),
+      MaterialPageRoute(builder: (context) => const ExamType()),
     );
   }
 
   void startExam() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const StartExamPage()),
+      MaterialPageRoute(builder: (context) => const FinalExamType()),
     );
   }
 

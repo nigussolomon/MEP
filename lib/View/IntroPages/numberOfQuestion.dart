@@ -119,37 +119,62 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
                             SizedBox(
                               height: screenSize.height * 0.02,
                             ),
-                            Padding(
+                            const Padding(
                               padding: EdgeInsets.only(right: 40),
                               child: QuestionField(
                                 fieldName: "መደብ 1",
                                 hintText: "0",
                               ),
                             ),
-                            SizedBox(
-                              height: screenSize.height * 0.02,
-                            ),
-                            Padding(
+                            
+                            const Padding(
                               padding: EdgeInsets.only(right: 40),
                               child: QuestionField(
                                 fieldName: "መደብ 2",
                                 hintText: "0",
                               ),
                             ),
-                            SizedBox(
-                              height: screenSize.height * 0.02,
-                            ),
-                            Padding(
+                            
+                            const Padding(
                               padding: EdgeInsets.only(right: 40),
                               child: QuestionField(
                                 fieldName: "መደብ 3",
                                 hintText: "0",
                               ),
                             ),
-                            SizedBox(
-                              height: screenSize.height * 0.02,
+                            
+                            const Padding(
+                              padding: EdgeInsets.only(right: 40),
+                              child: QuestionField(
+                                fieldName: "መደብ 4",
+                                hintText: "0",
+                              ),
                             ),
-                            Padding(
+                            
+                            const Padding(
+                              padding: EdgeInsets.only(right: 40),
+                              child: QuestionField(
+                                fieldName: "መደብ 4",
+                                hintText: "0",
+                              ),
+                            ),
+                            
+                            const Padding(
+                              padding: EdgeInsets.only(right: 40),
+                              child: QuestionField(
+                                fieldName: "መደብ 4",
+                                hintText: "0",
+                              ),
+                            ),
+                            
+                            const Padding(
+                              padding: EdgeInsets.only(right: 40),
+                              child: QuestionField(
+                                fieldName: "መደብ 4",
+                                hintText: "0",
+                              ),
+                            ),
+                            const Padding(
                               padding: EdgeInsets.only(right: 40),
                               child: QuestionField(
                                 fieldName: "መደብ 4",

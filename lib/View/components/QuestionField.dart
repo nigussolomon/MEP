@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 
-class QuestionField extends StatelessWidget {
+class QuestionField extends StatefulWidget {
   final String fieldName;
   final String hintText;
 
   const QuestionField({
-    super.key,
+    Key? key,
     required this.fieldName,
     required this.hintText,
-  });
+  }) : super(key: key);
+
+  @override
+  _QuestionFieldState createState() => _QuestionFieldState();
+}
+
+class _QuestionFieldState extends State<QuestionField> {
+  double _sliderValue = 25.0;
 
   @override
   Widget build(BuildContext context) {
@@ -16,29 +23,25 @@ class QuestionField extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          fieldName,
+          widget.fieldName,
           style: TextStyle(fontSize: 20, color: Color(0xFF484848)),
         ),
         Container(
-          width: 50,
-          height: 30,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: Colors.black, width: 2),
-            borderRadius: BorderRadius.circular(4),
+          width: 200,
+          child: Slider(
+            value: _sliderValue,
+            min: 0,
+            max: 50,
+            onChanged: (newValue) {
+              setState(() {
+                _sliderValue = newValue;
+              });
+            },
           ),
-          child: Center(
-            child: TextField(
-              maxLength: 2,
-              textAlign: TextAlign.center,
-              decoration: InputDecoration(
-                counterText:'',
-                hintText: hintText,
-                hintStyle: TextStyle(color: Colors.black),
-                border: InputBorder.none,
-              ),
-            ),
-          ),
+        ),
+        Text(
+          _sliderValue.toStringAsFixed(0),
+          style: TextStyle(fontSize: 20, color: Color(0xFF484848)),
         ),
       ],
     );
