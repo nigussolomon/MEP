@@ -12,6 +12,7 @@ part 'question_event.dart';
 part 'question_state.dart';
 
 class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
+  int qnum = 0;
   int index = 0;
   int mark = 0;
   dynamic mockQuestion = [];
@@ -51,6 +52,10 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
     mockQuestion.shuffle();
     int numQuestionsToSelect = min(50, mockQuestion.length);
     selectedQuestions = mockQuestion.sublist(0, numQuestionsToSelect);
+    for (final row in selectedQuestions) {
+      row.id = qnum += 1;
+    }
+    qnum = 0;
   }
 
   QuestionBloc() : super(QuestionInitialState()) {
@@ -89,7 +94,8 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
             mark, mockQuestionBackup.length, comment, scoreColor));
       } else {
         index++;
-        emit(QuestionSuccessState(question: selectedQuestions, index: index));
+        emit(QuestionSuccessState(
+            question: selectedQuestions, index: index, score: mark));
       }
     });
 

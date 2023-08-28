@@ -16,8 +16,9 @@ class QuestionLoadingState extends QuestionState {
 class QuestionSuccessState extends QuestionState {
   final List? question;
   int index;
+  int score;
 
-  QuestionSuccessState({this.question, this.index = 0});
+  QuestionSuccessState({this.question, this.index = 0, this.score = 0});
   @override
   List<Object> get props => [];
 }

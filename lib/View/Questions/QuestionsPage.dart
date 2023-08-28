@@ -117,33 +117,52 @@ class _QuestionPageState extends State<QuestionPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              storedName!,
-                              style: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w600),
+                            Column(
+                              children: [
+                                Text(
+                                  storedName!,
+                                  style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Text(
+                                  storedID!,
+                                  style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ],
                             ),
-                            Text(
-                              storedID!,
-                              style: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w600),
-                            ),
-                            Text(
-                              'የቀረ ጊዜ: ${getTimerText()}',
-                              style: const TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.w500,
-                              ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'የቀረ ጊዜ: ${getTimerText()}',
+                                  style: const TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                Text(
+                                  "ጥያቄ ${state.question![state.index].id} / 50",
+                                  style: const TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
                         Column(
                           children: [
                             QuestionTile(
-                                id: state.question?[state.index].id,
+                                id: state.question![state.index].id,
                                 questionContent: state
                                     .question![state.index].questionContent,
                                 choice1: state.question![state.index].choice1,
@@ -164,6 +183,8 @@ class _QuestionPageState extends State<QuestionPage> {
             );
           } else if (state is QuestionDoneState) {
             return ScorePage(
+              name: storedName!,
+              id: storedID!,
               score: state.score,
               total: state.total,
               comment: state.comment,
