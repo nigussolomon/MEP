@@ -5,6 +5,7 @@ class Question {
   String choice2;
   String choice3;
   String choice4;
+  String choice5;
   String answer;
   String topic;
 
@@ -15,6 +16,7 @@ class Question {
     required this.choice2,
     required this.choice3,
     required this.choice4,
+    required this.choice5,
     required this.answer,
     required this.topic,
   });
@@ -28,6 +30,7 @@ class Question {
         choice2: json['choice2'],
         choice3: json['choice3'],
         choice4: json['choice4'],
+        choice5: json['choice5'],
         answer: json['answer'],
         topic: json['topic']);
   }

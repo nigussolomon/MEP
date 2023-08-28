@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mep/Bloc/question/question_bloc.dart';
-import 'package:mep/View/Questions/QuestionsPage.dart';
+import 'package:mep/View/Questions/PracticeQuestionPage.dart';
 import 'package:mep/View/components/LoginButton.dart';
 import 'package:mep/View/components/QuestionField.dart';
 
@@ -20,7 +20,7 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
       MaterialPageRoute(
           builder: (context) => BlocProvider.value(
                 value: questionBloc,
-                child: const QuestionPage(),
+                child: const PracticeQuestionPage(),
               )),
     );
   }
@@ -119,40 +119,59 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
                             SizedBox(
                               height: screenSize.height * 0.02,
                             ),
-                            Padding(
+                            const Padding(
                               padding: EdgeInsets.only(right: 40),
                               child: QuestionField(
-                                fieldName: "መደብ 1",
+                                fieldName: "ንግግር",
                                 hintText: "0",
                               ),
                             ),
-                            SizedBox(
-                              height: screenSize.height * 0.02,
-                            ),
-                            Padding(
+                            const Padding(
                               padding: EdgeInsets.only(right: 40),
                               child: QuestionField(
-                                fieldName: "መደብ 2",
+                                fieldName: "መንዳት 1",
                                 hintText: "0",
                               ),
                             ),
-                            SizedBox(
-                              height: screenSize.height * 0.02,
-                            ),
-                            Padding(
+                            const Padding(
                               padding: EdgeInsets.only(right: 40),
                               child: QuestionField(
-                                fieldName: "መደብ 3",
+                                fieldName: "መንዳት 2",
                                 hintText: "0",
                               ),
                             ),
-                            SizedBox(
-                              height: screenSize.height * 0.02,
-                            ),
-                            Padding(
+                            const Padding(
                               padding: EdgeInsets.only(right: 40),
                               child: QuestionField(
-                                fieldName: "መደብ 4",
+                                fieldName: "ድንገተኛ አደጋ",
+                                hintText: "0",
+                              ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.only(right: 40),
+                              child: QuestionField(
+                                fieldName: "ህግ",
+                                hintText: "0",
+                              ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.only(right: 40),
+                              child: QuestionField(
+                                fieldName: "ስነ ባህሪ",
+                                hintText: "0",
+                              ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.only(right: 40),
+                              child: QuestionField(
+                                fieldName: "ቴክኒክ",
+                                hintText: "0",
+                              ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.only(right: 40),
+                              child: QuestionField(
+                                fieldName: "የጉዞ መረጃ",
                                 hintText: "0",
                               ),
                             ),

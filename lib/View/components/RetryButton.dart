@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mep/Bloc/question/question_bloc.dart';
-import 'package:mep/View/Questions/QuestionsPage.dart';
+import 'package:mep/View/Questions/PracticeQuestionPage.dart';
 
 class RetryButon extends StatefulWidget {
   const RetryButon({super.key});
@@ -26,7 +26,7 @@ class _RetryButonState extends State<RetryButon> {
             MaterialPageRoute(
               builder: (context) => BlocProvider.value(
                 value: questionBloc,
-                child: const QuestionPage(),
+                child: const PracticeQuestionPage(),
               ),
             ),
           );
