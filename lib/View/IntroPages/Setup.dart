@@ -33,6 +33,7 @@ class _SetupPageState extends State<SetupPage> {
   void _loadSavedValues() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     String? name_of_school = prefs.getString("name_of_school");
+    prefs.setString('name_of_school', '');
     if (name_of_school != null && name_of_school != "") {
       Navigator.pushReplacement(
         context,
