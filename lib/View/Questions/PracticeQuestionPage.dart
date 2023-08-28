@@ -4,7 +4,6 @@ import 'package:mep/Bloc/question/question_bloc.dart';
 import 'package:mep/View/Questions/ScorePage.dart';
 import 'package:mep/View/components/QuestionTile.dart';
 import 'package:mep/View/components/SkipButton.dart';
-import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 
 //global variable....so that question_bloc can access it
@@ -94,22 +93,47 @@ class _PracticeQuestionPageState extends State<PracticeQuestionPage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              storedName!,
-                              style: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w600),
-                            ),
-                            Text(
-                              storedID!,
-                              style: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w600),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Column(
+                                  children: [
+                                    Text(
+                                      storedName!,
+                                      style: const TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                    Text(
+                                      storedID!,
+                                      style: const TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "ጥያቄ ${state.question![state.index].id} / 50",
+                                      style: const TextStyle(
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ],
                         ),
                         Column(
                           children: [
                             QuestionTile(
-                                id: state.question?[state.index].id,
+                                id: state.question![state.index].id,
                                 questionContent: state
                                     .question![state.index].questionContent,
                                 choice1: state.question![state.index].choice1,
@@ -130,6 +154,8 @@ class _PracticeQuestionPageState extends State<PracticeQuestionPage> {
             );
           } else if (state is QuestionDoneState) {
             return ScorePage(
+                name: storedName!,
+                id: storedID!,
                 score: state.score,
                 total: state.total,
                 comment: state.comment,
