@@ -33,53 +33,31 @@ class _QuestionTileState extends State<QuestionTile> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Center(
-      child: Container(
-        child: Padding(
-          padding: EdgeInsets.only(
-            left: width * 0.3,
-            right: width * 0.3,
-            top: height * 0.2,
-            bottom: height * 0.05,
-          ),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Text(
-                  "${widget.id}| ${widget.questionContent}",
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 25),
-                ),
-              ),
-              SizedBox(
-                height: height * 0.05,
-              ),
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ChoiceButton(choiceContent: widget.choice1),
-                      ChoiceButton(choiceContent: widget.choice2),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ChoiceButton(choiceContent: widget.choice3),
-                      ChoiceButton(choiceContent: widget.choice4),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ChoiceButton(choiceContent: widget.choice5),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
+      child: Padding(
+        padding: EdgeInsets.only(
+          top: height * 0.1,
+          left: width * 0.05,
+          right: width * 0.05,
+          bottom: height * 0.05,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "${widget.id}| ${widget.questionContent}",
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+              textAlign: TextAlign.center,
+            ),
+            Column(
+              children: [
+                ChoiceButton(choiceContent: widget.choice1),
+                ChoiceButton(choiceContent: widget.choice2),
+                ChoiceButton(choiceContent: widget.choice3),
+                ChoiceButton(choiceContent: widget.choice4),
+                ChoiceButton(choiceContent: widget.choice5),
+              ],
+            ),
+          ],
         ),
       ),
     );

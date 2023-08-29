@@ -82,8 +82,10 @@ class ScorePage extends StatelessWidget {
       );
 
       pdf.addPage(page);
+      final pdfFileName = '$name-$id Score.pdf';
 
       Printing.layoutPdf(
+        name: pdfFileName,
         onLayout: (format) => pdf.save(),
       );
     }
