@@ -51,7 +51,7 @@ class _ChoiceButtonState extends State<ChoiceButton> {
                     fontSize: 18.0,
                   ),
                   overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
+                  maxLines: 3,
                 ),
               ),
             ),
