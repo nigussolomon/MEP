@@ -69,7 +69,7 @@ class ScorePage extends StatelessWidget {
                     height: height * 0.025,
                   ),
                   pdfWidgets.Text(
-                    "ውጤትዎ $score/50",
+                    "ውጤትዎ ${score * 2}/100",
                     style: pdfWidgets.TextStyle(
                       fontSize: height * 0.05,
                       color: pdfScoreColor,
@@ -107,7 +107,7 @@ class ScorePage extends StatelessWidget {
               height: height * 0.025,
             ),
             Text(
-              "ውጤትዎ $score/50",
+              "ውጤትዎ ${score * 2}/100",
               style: TextStyle(
                 fontSize: height * 0.05,
                 color: scoreColor,

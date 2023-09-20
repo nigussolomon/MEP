@@ -48,18 +48,38 @@ class _QuestionTileState extends State<QuestionTile> {
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
               textAlign: TextAlign.center,
             ),
-            Column(
-              children: [
-                ChoiceButton(choiceContent: widget.choice1),
-                ChoiceButton(choiceContent: widget.choice2),
-                ChoiceButton(choiceContent: widget.choice3),
-                ChoiceButton(choiceContent: widget.choice4),
-                ChoiceButton(choiceContent: widget.choice5),
-              ],
+            GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, childAspectRatio: 1, mainAxisExtent: 80),
+              itemCount: 5,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                final choiceContent =
+                    getChoiceContent(index); // Implement this method
+                return ChoiceButton(choiceContent: choiceContent);
+              },
             ),
           ],
         ),
       ),
     );
+  }
+
+  String getChoiceContent(int index) {
+    switch (index) {
+      case 0:
+        return widget.choice1;
+      case 1:
+        return widget.choice2;
+      case 2:
+        return widget.choice3;
+      case 3:
+        return widget.choice4;
+      case 4:
+        return widget.choice5;
+      default:
+        return '';
+    }
   }
 }

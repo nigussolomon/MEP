@@ -19,42 +19,44 @@ class _ChoiceButtonState extends State<ChoiceButton> {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-
     if (widget.choiceContent == "") {
       return const SizedBox.shrink();
     }
 
     return Padding(
-      padding: EdgeInsets.all(height * 0.02),
-      child: InkWell(
-        onTap: () => BlocProvider.of<QuestionBloc>(context)
-            .add(ChooseAnswer(widget.choiceContent!)),
-        onHover: (hovering) {
-          setState(() => isHovering = hovering);
-        },
-        child: Container(
-          padding: EdgeInsets.all(height * 0.023),
-          decoration: BoxDecoration(
-            color: isHovering
-                ? Colors.grey[700]
-                : const Color.fromARGB(255, 72, 72, 72),
-            borderRadius: BorderRadius.circular(5),
-          ),
-          child: Center(
-            child: Text(
-              widget.choiceContent!,
-              style: TextStyle(
-                color: Colors.white,
-                // fontWeight: FontWeight.bold,
-                fontSize: height * 0.03,
+      padding: EdgeInsets.all(10.0),
+      child: Column(
+        children: [
+          Container(
+            constraints:
+                const BoxConstraints(minWidth: 0, maxWidth: double.infinity),
+            padding: const EdgeInsets.all(10.0),
+            decoration: BoxDecoration(
+              color: isHovering
+                  ? Colors.grey[700]
+                  : const Color.fromARGB(255, 72, 72, 72),
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: InkWell(
+              onTap: () => BlocProvider.of<QuestionBloc>(context)
+                  .add(ChooseAnswer(widget.choiceContent!)),
+              onHover: (hovering) {
+                setState(() => isHovering = hovering);
+              },
+              child: Center(
+                child: Text(
+                  widget.choiceContent!,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
               ),
-              overflow: TextOverflow.ellipsis,
-              maxLines: 1,
             ),
           ),
-        ),
+        ],
       ),
     );
   }
