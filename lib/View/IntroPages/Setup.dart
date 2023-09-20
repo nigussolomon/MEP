@@ -19,6 +19,7 @@ class _SetupPageState extends State<SetupPage> {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('name_of_school', nameController.text);
     await prefs.setString('admin_password', passController.text);
+    await prefs.setString('setup_date', DateTime.now().toIso8601String());
 
     Navigator.pushReplacement(
       context,
