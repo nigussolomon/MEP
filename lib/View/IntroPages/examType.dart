@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mep/View/components/LoginButton.dart';
 import 'package:mep/View/IntroPages/numberOfQuestion.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ExamType extends StatefulWidget {
   const ExamType({super.key});
@@ -10,6 +11,21 @@ class ExamType extends StatefulWidget {
 }
 
 class _ExamTypeState extends State<ExamType> {
+  String? name_of_school = "";
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSavedValues();
+  }
+
+  void _loadSavedValues() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    name_of_school = prefs.getString("name_of_school");
+
+    setState(() {});
+  }
+
   void buttonFunction() {
     Navigator.push(
       context,
@@ -62,9 +78,9 @@ class _ExamTypeState extends State<ExamType> {
                         SizedBox(
                           height: screenSize.height * 0.05,
                         ),
-                        const Text(
-                          'ብርሃን የ ተሽከርካሪ እና የ መንጃ ፍቃድ ማሰልጠኛ ተቋም',
-                          style: TextStyle(
+                        Text(
+                          name_of_school!,
+                          style: const TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF484848),
@@ -84,8 +100,8 @@ class _ExamTypeState extends State<ExamType> {
                               ),
                             ),
                             SizedBox(
-                                width:
-                                     screenSize.width * 0.02,),
+                              width: screenSize.width * 0.02,
+                            ),
                             Expanded(
                               child: LoginButton(
                                 buttonName: "አውቶሞቢል",
@@ -94,7 +110,9 @@ class _ExamTypeState extends State<ExamType> {
                             ),
                           ],
                         ),
-                        SizedBox(height:  screenSize.height * 0.05,),
+                        SizedBox(
+                          height: screenSize.height * 0.05,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -105,8 +123,8 @@ class _ExamTypeState extends State<ExamType> {
                               ),
                             ),
                             SizedBox(
-                                width:
-                                     screenSize.width * 0.02,),
+                              width: screenSize.width * 0.02,
+                            ),
                             Expanded(
                               child: LoginButton(
                                 buttonName: "ታክሲ 2",
@@ -115,7 +133,9 @@ class _ExamTypeState extends State<ExamType> {
                             ),
                           ],
                         ),
-                        SizedBox(height:  screenSize.height * 0.05,),
+                        SizedBox(
+                          height: screenSize.height * 0.05,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -126,8 +146,8 @@ class _ExamTypeState extends State<ExamType> {
                               ),
                             ),
                             SizedBox(
-                                width:
-                                     screenSize.width * 0.02,),
+                              width: screenSize.width * 0.02,
+                            ),
                             Expanded(
                               child: LoginButton(
                                 buttonName: "ደረቅ 2",
@@ -136,7 +156,9 @@ class _ExamTypeState extends State<ExamType> {
                             ),
                           ],
                         ),
-                        SizedBox(height:  screenSize.height * 0.05,),
+                        SizedBox(
+                          height: screenSize.height * 0.05,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -147,8 +169,8 @@ class _ExamTypeState extends State<ExamType> {
                               ),
                             ),
                             SizedBox(
-                                width:
-                                     screenSize.width * 0.02,),
+                              width: screenSize.width * 0.02,
+                            ),
                             Expanded(
                               child: LoginButton(
                                 buttonName: "ህዝብ 1",
@@ -157,7 +179,9 @@ class _ExamTypeState extends State<ExamType> {
                             ),
                           ],
                         ),
-                        SizedBox(height:  screenSize.height * 0.05,),
+                        SizedBox(
+                          height: screenSize.height * 0.05,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -168,8 +192,8 @@ class _ExamTypeState extends State<ExamType> {
                               ),
                             ),
                             SizedBox(
-                                width:
-                                     screenSize.width * 0.02,),
+                              width: screenSize.width * 0.02,
+                            ),
                             Expanded(
                               child: SizedBox(),
                             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mep/View/components/LoginButton.dart';
 import 'package:mep/View/IntroPages/startExam.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FinalExamType extends StatefulWidget {
   const FinalExamType({super.key});
@@ -10,6 +11,21 @@ class FinalExamType extends StatefulWidget {
 }
 
 class _FinalExamTypeState extends State<FinalExamType> {
+  String? name_of_school = "";
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSavedValues();
+  }
+
+  void _loadSavedValues() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    name_of_school = prefs.getString("name_of_school");
+
+    setState(() {});
+  }
+
   void buttonFunction() {
     Navigator.push(
       context,
@@ -26,8 +42,7 @@ class _FinalExamTypeState extends State<FinalExamType> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         leading: Padding(
-          padding: EdgeInsets.only(
-              top: 15, left: 15),
+          padding: EdgeInsets.only(top: 15, left: 15),
           child: CircleAvatar(
             backgroundColor: Color(0xFF484848),
             child: BackButton(
@@ -63,9 +78,9 @@ class _FinalExamTypeState extends State<FinalExamType> {
                         SizedBox(
                           height: screenSize.height * 0.05,
                         ),
-                        const Text(
-                          'ብርሃን የ ተሽከርካሪ እና የ መንጃ ፍቃድ ማሰልጠኛ ተቋም',
-                          style: TextStyle(
+                        Text(
+                          name_of_school!,
+                          style: const TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF484848),
@@ -84,8 +99,8 @@ class _FinalExamTypeState extends State<FinalExamType> {
                               ),
                             ),
                             SizedBox(
-                                width:
-                                     screenSize.width * 0.02,),
+                              width: screenSize.width * 0.02,
+                            ),
                             Expanded(
                               child: LoginButton(
                                 buttonName: "አውቶሞቢል",
@@ -94,7 +109,9 @@ class _FinalExamTypeState extends State<FinalExamType> {
                             ),
                           ],
                         ),
-                        SizedBox(height:  screenSize.height * 0.05,),
+                        SizedBox(
+                          height: screenSize.height * 0.05,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -105,8 +122,8 @@ class _FinalExamTypeState extends State<FinalExamType> {
                               ),
                             ),
                             SizedBox(
-                                width:
-                                     screenSize.width * 0.02,),
+                              width: screenSize.width * 0.02,
+                            ),
                             Expanded(
                               child: LoginButton(
                                 buttonName: "ታክሲ 2",
@@ -115,7 +132,9 @@ class _FinalExamTypeState extends State<FinalExamType> {
                             ),
                           ],
                         ),
-                        SizedBox(height:  screenSize.height * 0.05,),
+                        SizedBox(
+                          height: screenSize.height * 0.05,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -126,8 +145,8 @@ class _FinalExamTypeState extends State<FinalExamType> {
                               ),
                             ),
                             SizedBox(
-                                width:
-                                     screenSize.width * 0.02,),
+                              width: screenSize.width * 0.02,
+                            ),
                             Expanded(
                               child: LoginButton(
                                 buttonName: "ደረቅ 2",
@@ -136,7 +155,9 @@ class _FinalExamTypeState extends State<FinalExamType> {
                             ),
                           ],
                         ),
-                        SizedBox(height:  screenSize.height * 0.05,),
+                        SizedBox(
+                          height: screenSize.height * 0.05,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -147,8 +168,8 @@ class _FinalExamTypeState extends State<FinalExamType> {
                               ),
                             ),
                             SizedBox(
-                                width:
-                                     screenSize.width * 0.02,),
+                              width: screenSize.width * 0.02,
+                            ),
                             Expanded(
                               child: LoginButton(
                                 buttonName: "ህዝብ 1",
@@ -157,7 +178,9 @@ class _FinalExamTypeState extends State<FinalExamType> {
                             ),
                           ],
                         ),
-                        SizedBox(height:  screenSize.height * 0.05,),
+                        SizedBox(
+                          height: screenSize.height * 0.05,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -168,8 +191,8 @@ class _FinalExamTypeState extends State<FinalExamType> {
                               ),
                             ),
                             SizedBox(
-                                width:
-                                     screenSize.width * 0.02,),
+                              width: screenSize.width * 0.02,
+                            ),
                             Expanded(
                               child: SizedBox(),
                             ),

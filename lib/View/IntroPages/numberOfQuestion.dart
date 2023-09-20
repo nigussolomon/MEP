@@ -4,6 +4,7 @@ import 'package:mep/Bloc/question/question_bloc.dart';
 import 'package:mep/View/Questions/PracticeQuestionPage.dart';
 import 'package:mep/View/components/LoginButton.dart';
 import 'package:mep/View/components/QuestionField.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NumberOfQuestions extends StatefulWidget {
   const NumberOfQuestions({super.key});
@@ -13,6 +14,21 @@ class NumberOfQuestions extends StatefulWidget {
 }
 
 class _NumberOfQuestionsState extends State<NumberOfQuestions> {
+  String? name_of_school = "";
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSavedValues();
+  }
+
+  void _loadSavedValues() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    name_of_school = prefs.getString("name_of_school");
+
+    setState(() {});
+  }
+
   void buttonFunction() {
     final questionBloc = QuestionBloc();
     Navigator.pushReplacement(
@@ -69,9 +85,9 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
                         SizedBox(
                           height: screenSize.height * 0.05,
                         ),
-                        const Text(
-                          'ብርሃን የ ተሽከርካሪ እና የ መንጃ ፍቃድ ማሰልጠኛ ተቋም',
-                          style: TextStyle(
+                        Text(
+                          name_of_school!,
+                          style: const TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF484848),

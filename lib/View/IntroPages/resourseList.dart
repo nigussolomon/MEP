@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mep/View/components/LoginButton.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ResourceList extends StatefulWidget {
   const ResourceList({super.key});
@@ -9,6 +10,21 @@ class ResourceList extends StatefulWidget {
 }
 
 class _ResourceListState extends State<ResourceList> {
+  String? name_of_school = "";
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSavedValues();
+  }
+
+  void _loadSavedValues() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    name_of_school = prefs.getString("name_of_school");
+
+    setState(() {});
+  }
+
   void buttonFunction() {}
 
   @override
@@ -20,8 +36,7 @@ class _ResourceListState extends State<ResourceList> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         leading: Padding(
-          padding: EdgeInsets.only(
-              top: 15, left: 15),
+          padding: EdgeInsets.only(top: 15, left: 15),
           child: CircleAvatar(
             backgroundColor: Color(0xFF484848),
             child: BackButton(
@@ -57,9 +72,9 @@ class _ResourceListState extends State<ResourceList> {
                         SizedBox(
                           height: screenSize.height * 0.05,
                         ),
-                        const Text(
-                          'ብርሃን የ ተሽከርካሪ እና የ መንጃ ፍቃድ ማሰልጠኛ ተቋም',
-                          style: TextStyle(
+                        Text(
+                          name_of_school!,
+                          style: const TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF484848),

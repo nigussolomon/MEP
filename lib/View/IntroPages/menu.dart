@@ -4,6 +4,7 @@ import 'package:mep/View/IntroPages/resourseList.dart';
 import 'package:mep/View/components/LoginButton.dart';
 import 'package:mep/View/IntroPages/examType.dart';
 import 'package:mep/View/IntroPages/finalExamType.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ChooseMenu extends StatefulWidget {
   const ChooseMenu({super.key});
@@ -13,6 +14,7 @@ class ChooseMenu extends StatefulWidget {
 }
 
 class _ChooseMenuState extends State<ChooseMenu> {
+  String? name_of_school = "";
   void questionConfiguration() {
     Navigator.push(
       context,
@@ -32,6 +34,19 @@ class _ChooseMenuState extends State<ChooseMenu> {
       context,
       MaterialPageRoute(builder: (context) => const ResourceList()),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSavedValues();
+  }
+
+  void _loadSavedValues() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    name_of_school = prefs.getString("name_of_school");
+
+    setState(() {});
   }
 
   @override
@@ -85,9 +100,9 @@ class _ChooseMenuState extends State<ChooseMenu> {
                         SizedBox(
                           height: screenSize.height * 0.05,
                         ),
-                        const Text(
-                          'ብርሃን የ ተሽከርካሪ እና የ መንጃ ፍቃድ ማሰልጠኛ ተቋም',
-                          style: TextStyle(
+                        Text(
+                          name_of_school!,
+                          style: const TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF484848),

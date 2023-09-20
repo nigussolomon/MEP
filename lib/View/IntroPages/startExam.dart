@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mep/Bloc/question/question_bloc.dart';
 import 'package:mep/View/Questions/QuestionsPage.dart';
 import 'package:mep/View/components/LoginButton.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class StartExamPage extends StatefulWidget {
   const StartExamPage({super.key});
@@ -12,8 +13,23 @@ class StartExamPage extends StatefulWidget {
 }
 
 class _StartExamPageState extends State<StartExamPage> {
+  String? name_of_school = "";
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSavedValues();
+  }
+
+  void _loadSavedValues() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    name_of_school = prefs.getString("name_of_school");
+
+    setState(() {});
+  }
+
   void buttonFunction() {
-    final questionBloc =  QuestionBloc();
+    final questionBloc = QuestionBloc();
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -57,7 +73,8 @@ class _StartExamPageState extends State<StartExamPage> {
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: screenSize.width * 0.1),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: screenSize.width * 0.1),
                   child: Container(
                     color: Colors.white,
                     child: Column(
@@ -67,9 +84,9 @@ class _StartExamPageState extends State<StartExamPage> {
                         SizedBox(
                           height: screenSize.height * 0.05,
                         ),
-                        const Text(
-                          'ብርሃን የ ተሽከርካሪ እና የ መንጃ ፍቃድ ማሰልጠኛ ተቋም',
-                          style: TextStyle(
+                        Text(
+                          name_of_school!,
+                          style: const TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF484848),
