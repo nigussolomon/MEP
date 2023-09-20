@@ -27,7 +27,7 @@ class _QuestionPageState extends State<QuestionPage> {
   @override
   void initState() {
     setState(() {
-      BlocProvider.of<QuestionBloc>(context).add(GetQuestions());
+      BlocProvider.of<QuestionBloc>(context).add(GetQuestions(5, 5, 5, 5, 5));
     });
     //timer related
     seconds = durationInMunites * 60;

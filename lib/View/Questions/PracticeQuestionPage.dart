@@ -20,12 +20,14 @@ class _PracticeQuestionPageState extends State<PracticeQuestionPage> {
   String? storedName;
   String? storedID;
   int seconds = 0;
+  int? cdc;
+  int? cdlp;
+  int? cdt;
+  int? cdd;
+  int? cde;
   final int durationInMunites = 50;
   @override
   void initState() {
-    setState(() {
-      BlocProvider.of<QuestionBloc>(context).add(GetQuestions());
-    });
     super.initState();
     _loadStoredAnswer();
   }
@@ -40,7 +42,14 @@ class _PracticeQuestionPageState extends State<PracticeQuestionPage> {
     setState(() {
       storedName = _prefs.getString('name');
       storedID = _prefs.getString('password');
+      cdc = _prefs.getInt("ንግግር");
+      cdlp = _prefs.getInt("ጭነት እና ተሳፋሪ");
+      cdt = _prefs.getInt("ቴክኒክ");
+      cdd = _prefs.getInt("መንዳት 1");
+      cde = _prefs.getInt("ድንገተኛ አደጋ");
     });
+    BlocProvider.of<QuestionBloc>(context)
+        .add(GetQuestions(cdc!, cdlp!, cdt!, cdd!, cde!));
   }
 
   @override

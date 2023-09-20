@@ -72,6 +72,8 @@ flutter:
     - asset/communication.csv
     - asset/driving.csv
     - asset/l_and_p.csv
+    - asset/technic.csv
+    - asset/emergency.csv
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

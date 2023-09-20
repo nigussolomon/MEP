@@ -166,14 +166,7 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
                             const Padding(
                               padding: EdgeInsets.only(right: 40),
                               child: QuestionField(
-                                fieldName: "ህግ",
-                                hintText: "0",
-                              ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(right: 40),
-                              child: QuestionField(
-                                fieldName: "ስነ ባህሪ",
+                                fieldName: "ጭነት እና ተሳፋሪ",
                                 hintText: "0",
                               ),
                             ),
@@ -181,13 +174,6 @@ class _NumberOfQuestionsState extends State<NumberOfQuestions> {
                               padding: EdgeInsets.only(right: 40),
                               child: QuestionField(
                                 fieldName: "ቴክኒክ",
-                                hintText: "0",
-                              ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(right: 40),
-                              child: QuestionField(
-                                fieldName: "የጉዞ መረጃ",
                                 hintText: "0",
                               ),
                             ),

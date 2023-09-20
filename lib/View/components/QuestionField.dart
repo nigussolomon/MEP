@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class QuestionField extends StatefulWidget {
   final String fieldName;
@@ -17,6 +18,11 @@ class QuestionField extends StatefulWidget {
 class _QuestionFieldState extends State<QuestionField> {
   double _sliderValue = 25.0;
 
+  void buttonFunction(int num) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(widget.fieldName, num);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -27,7 +33,7 @@ class _QuestionFieldState extends State<QuestionField> {
           style: TextStyle(fontSize: 20, color: Color(0xFF484848)),
         ),
         Container(
-          width: 200,
+          width: 180,
           child: Slider(
             value: _sliderValue,
             min: 0,
@@ -35,6 +41,7 @@ class _QuestionFieldState extends State<QuestionField> {
             onChanged: (newValue) {
               setState(() {
                 _sliderValue = newValue;
+                buttonFunction(newValue.toInt());
               });
             },
           ),

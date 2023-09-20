@@ -19,26 +19,36 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
   dynamic mockQuestionBackup = [];
   List<dynamic> selectedQuestions = [];
 
-  Future<void> readCSV() async {
+  Future<void> readCSV(cdc, cdlp, cdd, cdt, cde) async {
     final String csvDataCommunication =
         await rootBundle.loadString('asset/communication.csv');
     final String csvDataLandP =
-        await rootBundle.loadString('asset/driving.csv');
-    final String csvDataDriving =
         await rootBundle.loadString('asset/l_and_p.csv');
+    final String csvDataDriving =
+        await rootBundle.loadString('asset/driving.csv');
+    final String csvDataTechnic =
+        await rootBundle.loadString('asset/technic.csv');
+    final String csvDataEmergency =
+        await rootBundle.loadString('asset/emergency.csv');
 
     final List<List<dynamic>> rows = [];
 
-    rows.addAll(const CsvToListConverter().convert(csvDataCommunication));
-
-    rows.addAll(const CsvToListConverter().convert(csvDataLandP));
-
-    rows.addAll(const CsvToListConverter().convert(csvDataDriving));
+    rows.addAll(const CsvToListConverter()
+        .convert(csvDataCommunication)
+        .sublist(0, cdc > 40 ? 40 : cdc));
+    rows.addAll(
+        const CsvToListConverter().convert(csvDataLandP).sublist(0, cdlp));
+    rows.addAll(
+        const CsvToListConverter().convert(csvDataDriving).sublist(0, cdd));
+    rows.addAll(
+        const CsvToListConverter().convert(csvDataTechnic).sublist(0, cdt));
+    rows.addAll(
+        const CsvToListConverter().convert(csvDataEmergency).sublist(0, cde));
 
     for (final row in rows) {
       var question = Question(
         id: 1,
-        questionContent: row[1],
+        questionContent: row[1].toString(),
         choice1: row[2],
         choice2: row[3],
         choice3: row[4] ?? "null",
@@ -61,7 +71,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
   QuestionBloc() : super(QuestionInitialState()) {
     on<GetQuestions>((event, emit) async {
       emit(QuestionLoadingState());
-      await readCSV();
+      await readCSV(event.cdc, event.cdlp, event.cdd, event.cdt, event.cde);
       index = mark = 0;
       mockQuestion = [];
       mockQuestionBackup = [];

@@ -13,10 +13,12 @@ class SetupPage extends StatefulWidget {
 
 class _SetupPageState extends State<SetupPage> {
   TextEditingController nameController = TextEditingController();
+  TextEditingController passController = TextEditingController();
 
   void buttonFunction() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('name_of_school', nameController.text);
+    await prefs.setString('admin_password', passController.text);
 
     Navigator.pushReplacement(
       context,
@@ -33,8 +35,11 @@ class _SetupPageState extends State<SetupPage> {
   void _loadSavedValues() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     String? name_of_school = prefs.getString("name_of_school");
-    // prefs.setString('name_of_school', '');
-    if (name_of_school != null && name_of_school != "") {
+    String? password = prefs.getString("admin_password");
+    prefs.setString('name_of_school', '');
+    prefs.setString('admin_password', '');
+    if ((name_of_school != null && name_of_school != "") &&
+        (password != null && password != "")) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const LoginPage()),
@@ -96,6 +101,12 @@ class _SetupPageState extends State<SetupPage> {
                         MyTextField(
                           controller: nameController,
                           hintText: "ስም",
+                          obscureText: false,
+                        ),
+                        SizedBox(height: screenSize.height * 0.02),
+                        MyTextField(
+                          controller: passController,
+                          hintText: "የይለፍ ቃል",
                           obscureText: false,
                         ),
                         SizedBox(height: screenSize.height * 0.02),
